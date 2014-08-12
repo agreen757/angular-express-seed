@@ -30,7 +30,7 @@ app.get('/', routes.index);
 app.put('/query', function(req,res){
     console.log(req.body)
     res.setHeader("Content-Type", "text/html");
-    reports.query(req.body.name, function(err,response){
+    reports.query(req.body.name,req.body.month, function(err,response){
         //console.log(err,response);
         res.send({data:response});
     })

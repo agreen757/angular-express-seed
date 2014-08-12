@@ -27,8 +27,8 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
     $scope.query = function(file){
-        console.log(file)
-        $http.put('/query', {name:file.name}).success(function(data,status,headers){
+        //console.log($scope.inputInfo.month.$modelValue)
+        $http.put('/query', {name:file.name, month:$scope.inputInfo.month.$modelValue}).success(function(data,status,headers){
             //console.log(data,status,headers);
             
             var gross = 0;

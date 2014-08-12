@@ -7,8 +7,16 @@
                 
 .container
     div.row
-        input(placeholder="Enter a Custom ID", ng-model="request.name")
-        button.btn.btn-primary(ng-click="query(request)") Submit
+        form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
+            select.form-control(name="month", ng-model="request.month")
+                option February
+                option March
+                option April
+                option May
+                option June
+                option July
+            input(placeholder="Enter a Custom ID", ng-model="request.name", name="name")
+            button.btn.btn-primary(ng-click="query(request)") Submit
         center
             h2 {{name}}
         
