@@ -41,6 +41,7 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
             $scope.partViews = data.data.partViews;
             $scope.partAdViews = data.data.partAdViews;
             $scope.name = data.data.name;
+            $scope.month = data.data.month;
             
             /*data.data.map(function(element){
                 console.log(element.tEarnings);
