@@ -4,11 +4,11 @@ var Server = require('mongodb').Server;
 var MONGOHQ_URL="mongodb://indmusic:247MCNetwork@candidate.19.mongolayer.com:10190,candidate.18.mongolayer.com:10190/INDMUSIC/?replicaSet=set-5373e23c687705ee6c001ef5";
 
 MongoClient.connect(MONGOHQ_URL, function(err, db){
-    exports.query = function(request,cb){
+    exports.query = function(request,month,cb){
         console.log("executing query...")
         
         //INSERT THE AGGREGATOR
-        db.collection('Reports-July').aggregate(
+        db.collection('Reports-'+month).aggregate(
             {$match:{'customId':{$in:[request]}}},
            // {$match:{'customId':{$in:[element.customId[0]]}}},
             {
