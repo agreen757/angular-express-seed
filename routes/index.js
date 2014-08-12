@@ -4,10 +4,15 @@
  */
 
 exports.index = function(req, res){
-  res.render('index');
+    res.render('index', { title: 'Express' });
 };
 
-exports.partials = function (req, res) {
-  var name = req.params.name;
-  res.render('partials/' + name);
+exports.reports = function(req, res){
+    res.render('report', { title: 'Express' });
+};
+
+/** serve jade enabled partials */
+exports.partials = function(req, res) {
+    //console.log(req.params);
+    res.render('partials/' + req.params.name);
 };
