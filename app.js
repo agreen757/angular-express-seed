@@ -1,66 +1,44 @@
 
 /**
- * Module dependencies
+ * Module dependencies.
  */
 
 var express = require('express'),
-  bodyParser = require('body-parser'),
-  methodOverride = require('method-override'),
-  errorHandler = require('error-handler'),
-  morgan = require('morgan'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
-  http = require('http'),
-  path = require('path');
+    routes = require('./routes'),
+    http = require('http'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    path = require('path'),
+    reports = require('./public/app/mongo.js');
 
-var app = module.exports = express();
-
-
-/**
- * Configuration
- */
+var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(morgan('dev'));
 app.use(bodyParser());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var env = process.env.NODE_ENV || 'development';
-
 // development only
-if (env === 'development') {
+/*if ('development' == app.get('env')) {
   app.use(express.errorHandler());
-}
+}*/
 
-// production only
-if (env === 'production') {
-  // TODO
-}
-
-
-/**
- * Routes
- */
-
-// serve index and view partials
 app.get('/', routes.index);
+app.put('/query', function(req,res){
+    console.log(req.body)
+    res.setHeader("Content-Type", "text/html");
+    reports.query(req.body.name, function(err,response){
+        //console.log(err,response);
+        res.send({data:response});
+    })
+})
+app.get('/report', routes.reports);
 app.get('/partials/:name', routes.partials);
-
-// JSON API
-app.get('/api/name', api.name);
-
-// redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
-
-/**
- * Start Server
- */
-
-http.createServer(app).listen(app.get('port'), function () {
+http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

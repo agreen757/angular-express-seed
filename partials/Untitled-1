@@ -1,0 +1,31 @@
+.container-fluid
+    .row
+        .jumbotron
+            center
+                h2 {{message}}
+                
+.container
+    div.row
+        div.col-md-4(style="background-color:#eee;height:200px")
+            center
+                h1 Resource Type
+                h3 Enter the type of file you are trying to upload
+                strong Sound Recording / Image
+            div
+                center
+                    select 
+                        option Select an option
+                        option Sound Recording
+                        option Image
+        div.col-md-4(style="background-color:#eee;height:200px")
+            center
+                h1 File Name
+                h3 Enter the name of the file
+                input(placeholder="filename.wav / image.jpg")
+        div.col-md-4(style="background-color:#eee;height:200px")
+            center
+                h1 ISRC
+                h3 Enter the ISRC Number
+                input
+                
+     

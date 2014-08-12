@@ -1,0 +1,43 @@
+.container-fluid
+    .row
+        .jumbotron
+            center
+                h1 {{header}}
+                h3 Input a CustomID and get a header preview
+                
+.container
+    div.row
+        input(placeholder="Enter a Custom ID" ng-model="request.name")
+        button.btn.btn-primary(ng-click="query(request)") Submit
+        center
+            h2 {{name}}
+        
+    div.row
+        div.col-md-6
+            center
+                h1 UGC
+                table.table
+                    thead    
+                        tr
+                            th UGC Views
+                            th UGC Ad-Enabled Views
+                            th UGC Earnings
+                    tbody        
+                        tr
+                            td {{ugcViews}}
+                            td {{ugcAdViews}}
+                            td {{ugcEarnings}}
+        div.col-md-6
+            center
+                h1 Partner Provided
+                table.table
+                    thead
+                        tr
+                            th Partner Views
+                            th Partner Ad-Enabled Views
+                            th Partner Earnings
+                    tbody        
+                        tr
+                            td {{partViews}}
+                            td {{partAdViews}}
+                            td {{partEarnings}}

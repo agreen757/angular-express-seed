@@ -1,0 +1,47 @@
+.container-fluid
+    .row
+        .jumbotron
+            center
+                h2 {{message}}
+                
+.container
+    center 
+        h2 Line Items
+        table
+            tr
+                th File Name
+                th File Type
+                th ISRC
+            tr
+            tr(ng-repeat="infos in info")
+                td {{infos.filename}}
+                td {{infos.type}}
+                td {{infos.isrc}}
+                
+                
+.container
+    form(name="metadata" ng-class="{ 'has-error': userForm.email.$invalid }")
+        div.row
+            div.col-md-4(style="background-color:#eee;height:200px")
+                center
+                    h1 Resource Type
+                    h3 Enter the type of file you are trying to upload
+                    strong Sound Recording / Image
+                div
+                    center
+                        select(name="type" ng-model="file.type") 
+                            option Sound Recording
+                            option Image
+            div.col-md-4(style="background-color:#eee;height:200px")
+                center
+                    h1 File Name
+                    h3 Enter the name of the file
+                    input(name="filename" ng-model="file.name" placeholder="filename.wav / image.jpg")
+            div.col-md-4(style="background-color:#eee;height:200px")
+                center
+                    h1 ISRC
+                    h3 Enter the ISRC Number
+                    input(name="isrc" ng-model="file.isrc" placeholder="Your ISRC")
+            button.btn.btn-primary(ng-click="save(file)") Submit
+                
+        
