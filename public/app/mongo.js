@@ -19,7 +19,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                     views: {$sum: "$tViews"},
                     adViews: {$sum: "$adViews"}
                 }}, function(err,result){
-                        var comb = {};
+                        var comb = {month:month};
                         var counter = 0;
                 
                         console.log(result);
