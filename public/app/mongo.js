@@ -1,6 +1,6 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-var Server = require('mongodb').Server,
+var Server = require('mongodb').Server;
     //spawn = require('child_process').spawn,
     /*mongoexport = spawn('mongoexport', [
         '--host candidate.19.mongolayer.com',
