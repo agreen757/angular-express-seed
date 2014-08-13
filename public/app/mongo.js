@@ -19,7 +19,7 @@ var MONGOHQ_URL="mongodb://indmusic:247MCNetwork@candidate.19.mongolayer.com:101
 MongoClient.connect(MONGOHQ_URL, function(err, db){
     
     //NEED TO WORK OUT THIS EXPORT UTILITY
-    exports.dl = function(request,month,cb){
+    /*exports.dl = function(request,month,cb){
         console.log("in the dl")
         mongoexport.stdout.on('data', function(data){
             console.log(data);
@@ -28,7 +28,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             console.log("finished export")
             return cb(null,"done");
         })
-    }
+    }*/
     exports.queryNotes= function(request,month,cb){
         console.log("executing notes search...");
         
