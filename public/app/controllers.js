@@ -27,7 +27,7 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
     $scope.export = function(file){
-        $http.put('/export', {name:file.name, month:$scope.inputInfo.month.$modelValue}).success(function(data,status,headers){
+        $http.put('/export', {name:$scope.inputInfo.name.$modelValue, month:$scope.inputInfo.month.$modelValue}).success(function(data,status,headers){
             console.log(status);
         })
     }

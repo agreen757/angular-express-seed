@@ -1,7 +1,8 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var Server = require('mongodb').Server;
-var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
+var child;
     /*mongoexport = spawn('mongoexport', [
         '--host candidate.19.mongolayer.com',
         '--port 10190', 
@@ -19,16 +20,25 @@ var MONGOHQ_URL="mongodb://indmusic:247MCNetwork@candidate.19.mongolayer.com:101
 MongoClient.connect(MONGOHQ_URL, function(err, db){
     
     //NEED TO WORK OUT THIS EXPORT UTILITY
-    /*exports.dl = function(request,month,cb){
-        console.log("in the dl")
-        mongoexport.stdout.on('data', function(data){
-            console.log(data);
+    exports.dl = function(request,month,cb){
+        
+        
+        
+        console.log("in the export");
+        var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c Reports-"+month+" -q '{customId:\""+request+"\"}' --out "+request+".csv --csv --fields videoId,claimType,claimOrigin,assetTitle,contentType,assetType,artist,album,isrc,customId,writer,channel,tViews,adViews,tEarnings";
+        
+        child = exec(outstring, function(error,stdout,stderr){
+            console.log('doing something')
+            console.log("stdout: "+stdout);
+            return cb(null, stdout);
+            console.log('stderr: ' + stderr);
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
         })
-        mongoexport.stdout.on('end', function(){
-            console.log("finished export")
-            return cb(null,"done");
-        })
-    }*/
+        
+        
+    }
     exports.queryNotes= function(request,month,cb){
         console.log("executing notes search...");
         
