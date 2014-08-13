@@ -26,6 +26,24 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
 
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
+    $scope.export = function(file){
+        $http.put('/export', {name:file.name, month:$scope.inputInfo.month.$modelValue}).success(function(data,status,headers){
+            console.log(status);
+        })
+    }
+    $scope.queryNotes = function(file){
+        $http.put('/queryNotes', {name:$scope.inputInfoNotes.name.$modelValue, month:$scope.inputInfoNotes.month.$modelValue}).success(function(data,status,headers){
+            console.log(data);
+            $scope.ugcAdViews = data.data.ugcAdViews;
+            $scope.ugcViews = data.data.ugcViews;
+            $scope.ugcEarnings = data.data.ugcEarnings;
+            $scope.partEarnings = data.data.partEarnings;
+            $scope.partViews = data.data.partViews;
+            $scope.partAdViews = data.data.partAdViews;
+            $scope.name = data.data.name;
+            $scope.month = data.data.month;
+        })
+    }
     $scope.query = function(file){
         //console.log($scope.inputInfo.month.$modelValue)
         $http.put('/query', {name:file.name, month:$scope.inputInfo.month.$modelValue}).success(function(data,status,headers){

@@ -3,23 +3,42 @@
         .jumbotron
             center
                 h1 {{header}}
-                h3 Input a CustomID and get a header preview
+                h3 Input info and get a header preview
                 
 .container
     div.row
-        form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
-            select.form-control(name="month", ng-model="request.month")
-                option February
-                option March
-                option April
-                option May
-                option June
-                option July
-            input(placeholder="Enter a Custom ID", ng-model="request.name", name="name")
-            button.btn.btn-primary(ng-click="query(request)") Submit
-        center
-            h2 {{name}}
-            h2 {{month}}
+        div.col-md-6(style="border:solid #eee;padding:20px;")
+            center
+                h2 Enter 'customID' Identifier
+            form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
+                select.form-control(name="month", ng-model="request.month")
+                    option February
+                    option March
+                    option April
+                    option May
+                    option June
+                    option July
+                input(placeholder="Enter a Custom ID", ng-model="request.name", name="name")
+                button.btn.btn-primary(ng-click="query(request)") Submit
+                
+        div.col-md-6(style="border:solid #eee;padding:20px;")
+            center
+                h2 Enter 'NOTES' Identifier
+            form(name="inputInfoNotes", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
+                select.form-control(name="month", ng-model="notes.month")
+                    option February
+                    option March
+                    option April
+                    option May
+                    option June
+                    option July
+                input(placeholder="eg. TUNECORE", ng-model="notes.name", name="name")
+                button.btn.btn-primary(ng-click="queryNotes(request)") Submit
+            
+        div(style="margin-top:20px") 
+            center
+                h2{{name}}
+                h2 {{month}}
         
     div.row
         div.col-md-6
