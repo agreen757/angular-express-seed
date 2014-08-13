@@ -1,8 +1,8 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var Server = require('mongodb').Server,
-    spawn = require('child_process').spawn,
-    mongoexport = spawn('mongoexport', [
+    //spawn = require('child_process').spawn,
+    /*mongoexport = spawn('mongoexport', [
         '--host candidate.19.mongolayer.com',
         '--port 10190', 
         '-u indmusic',
@@ -13,7 +13,7 @@ var Server = require('mongodb').Server,
         '--out output.csv',
         '--csv',
         '--fields videoId,claimType,claimOrigin,assetTitle,contentType,assetType,artist,album,isrc,customId,writer,channel,tViews,adViews,tEarnings'
-    ])
+    ])*/
 var MONGOHQ_URL="mongodb://indmusic:247MCNetwork@candidate.19.mongolayer.com:10190,candidate.18.mongolayer.com:10190/INDMUSIC/?replicaSet=set-5373e23c687705ee6c001ef5";
 
 MongoClient.connect(MONGOHQ_URL, function(err, db){
