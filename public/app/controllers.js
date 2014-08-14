@@ -18,7 +18,7 @@ controllers.controller('IndexController', ['$scope', function($scope) {
     }
     
 }]);
-
+var globalname;
 controllers.controller('AnotherController', ['$scope', function($scope) {
     $scope.message = 'Another Page';
     //$scope.name = 'bob';
@@ -26,9 +26,23 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
 
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
+    $scope.getDownload = function(file){
+        $('<form action="'+ "/download" +'" method="'+ ('post') +'">'+'<input type="hidden" name="file" value="'+$scope.inputInfo.name.$modelValue+'"'+'/></form>')
+               .appendTo('body').submit().remove();
+        $scope.download = null
+        /*$http.put('/download', {file:$scope.inputInfo.name.$modelValue+'.csv'}).success(function(data,status,headers){
+            console.log(status);
+            console.log(data);
+            
+        })*/
+    }
     $scope.export = function(file){
         $http.put('/export', {name:$scope.inputInfo.name.$modelValue, month:$scope.inputInfo.month.$modelValue}).success(function(data,status,headers){
             console.log(status);
+            $scope.download = "Download"
+            $scope.fileName = $scope.inputInfo.name.$modelValue+'.csv';
+            $scope.generate = "Generate";
+            globalname = $scope.fileName;
         })
     }
     $scope.queryNotes = function(file){

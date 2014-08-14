@@ -20,6 +20,8 @@
                     option July
                 input(placeholder="Enter a Custom ID", ng-model="request.name", name="name")
                 button.btn.btn-primary(ng-click="query(request)") Submit
+                br
+                button.btn.btn-primary(ng-click="export(request)") Export
                 
         div.col-md-6(style="border:solid #eee;padding:20px;")
             center
@@ -34,11 +36,16 @@
                     option July
                 input(placeholder="eg. TUNECORE", ng-model="notes.name", name="name")
                 button.btn.btn-primary(ng-click="queryNotes(request)") Submit
+                br
+                button.btn.btn-primary(ng-click="export(request)") Export
             
         div(style="margin-top:20px") 
             center
-                h2{{name}}
+                h2 {{name}}
                 h2 {{month}}
+                h2 
+                    a(href="#", ng-click="getDownload(request)") {{download}}
+                    a(ng-href="{{link}}",download="{{fileName}}")
         
     div.row
         div.col-md-6

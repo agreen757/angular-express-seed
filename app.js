@@ -35,6 +35,13 @@ app.put('/query', function(req,res){
         res.send({data:response});
     })
 })
+app.post('/download', function(req,res){
+    console.log(req.body)
+    //res.setHeader("Content-Type", "text/html");
+    res.download(__dirname +'/'+ req.body.file+'.csv', function(err){
+        if(err){console.log(err)}
+    })
+})
 app.put('/queryNotes', function(req,res){
     console.log(req.body);
     res.setHeader("Content-Type", "text/html");
