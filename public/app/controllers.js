@@ -26,6 +26,7 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
 
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
+    $scope.display = 'none'
     $scope.getDownload = function(file){
         $('<form action="'+ "/download" +'" method="'+ ('post') +'">'+'<input type="hidden" name="file" value="'+$scope.inputInfo.name.$modelValue+'"'+'/></form>')
                .appendTo('body').submit().remove();
@@ -56,6 +57,7 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
             $scope.partAdViews = data.data.partAdViews;
             $scope.name = data.data.name;
             $scope.month = data.data.month;
+            $scope.display = "inherit"
         })
     }
     $scope.query = function(file){
@@ -74,6 +76,7 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
             $scope.partAdViews = data.data.partAdViews;
             $scope.name = data.data.name;
             $scope.month = data.data.month;
+            $scope.display = "inherit"
             
             /*data.data.map(function(element){
                 console.log(element.tEarnings);

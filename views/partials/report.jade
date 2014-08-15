@@ -6,6 +6,42 @@
                 h3 Input info and get a header preview
                 
 .container
+    div(style="margin-top:20px") 
+            center
+                h2 {{name}}
+                h2 {{month}}
+                h2 
+                    a(href="#", ng-click="getDownload(request)") {{download}}
+                    a(ng-href="{{link}}",download="{{fileName}}")
+    div.row(style="display:{{display}}")
+        div.col-md-6
+            center
+                h1 UGC
+                table.table
+                    thead    
+                        tr
+                            th UGC Views
+                            th UGC Ad-Enabled Views
+                            th UGC Earnings
+                    tbody        
+                        tr
+                            td {{ugcViews}}
+                            td {{ugcAdViews}}
+                            td {{ugcEarnings}}
+        div.col-md-6
+            center
+                h1 Partner Provided
+                table.table
+                    thead
+                        tr
+                            th Partner Views
+                            th Partner Ad-Enabled Views
+                            th Partner Earnings
+                    tbody        
+                        tr
+                            td {{partViews}}
+                            td {{partAdViews}}
+                            td {{partEarnings}}
     div.row
         div.col-md-6(style="border:solid #eee;padding:20px;")
             center
@@ -35,44 +71,6 @@
                     option June
                     option July
                 input(placeholder="eg. TUNECORE", ng-model="notes.name", name="name")
-                button.btn.btn-primary(ng-click="queryNotes(request)") Preview
+                button.btn.btn-primary(ng-click="queryNotes(request)") Preview  
                 br
                 button.btn.btn-primary(ng-click="export(request)") Export
-            
-        div(style="margin-top:20px") 
-            center
-                h2 {{name}}
-                h2 {{month}}
-                h2 
-                    a(href="#", ng-click="getDownload(request)") {{download}}
-                    a(ng-href="{{link}}",download="{{fileName}}")
-        
-    div.row
-        div.col-md-6
-            center
-                h1 UGC
-                table.table
-                    thead    
-                        tr
-                            th UGC Views
-                            th UGC Ad-Enabled Views
-                            th UGC Earnings
-                    tbody        
-                        tr
-                            td {{ugcViews}}
-                            td {{ugcAdViews}}
-                            td {{ugcEarnings}}
-        div.col-md-6
-            center
-                h1 Partner Provided
-                table.table
-                    thead
-                        tr
-                            th Partner Views
-                            th Partner Ad-Enabled Views
-                            th Partner Earnings
-                    tbody        
-                        tr
-                            td {{partViews}}
-                            td {{partAdViews}}
-                            td {{partEarnings}}
