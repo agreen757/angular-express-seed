@@ -77,10 +77,24 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     
     function writer(silo,cb){
+        
+        if(silo.partViews == null){
+            var partViews = 0;
+            var partRev = 0;
+            var partAdViews = 0;
+            var partnerCPM = "N/A"
+        }
+        else{
+            var partViews = silo.partViews;
+            var partRev = silo.partEarnings;
+            var partAdViews = silo.partAdViews;
+            var partnerCPM = partRev / partTAViews;
+        }
+        
         var ugcPercentage = .1
-        var partNAdViews = silo.partViews - silo.partAdViews;
-        var partTAViews = silo.partAdViews / 1000;
-        var partnerCPM = silo.partEarnings / partTAViews;
+        var partNAdViews = partViews - partAdViews;
+        var partTAViews = partAdViews / 1000;
+        //var partnerCPM = partRev / partTAViews;
         if(partnerCPM > 5){
            var partPercentage = 2 * partnerCPM / 100;
             }
@@ -98,8 +112,8 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             var ugcRev = silo.ugcEarnings;
             var ugcAdViews = silo.ugcAdViews;
         }
-        var partIndFee = partPercentage * silo.partEarnings;
-        var partEarnings = silo.partEarnings-partIndFee;
+        var partIndFee = partPercentage * partRev;
+        var partEarnings = partRev-partIndFee;
         var ugcIndFee = ugcPercentage*ugcRev;
         var ugcEarnings = ugcRev-ugcIndFee;
         var payout = partEarnings+ugcEarnings;
@@ -107,10 +121,10 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
         
         fs.writeFile(silo.name+'.csv', "INDMusic Channel Report"+"\n"+silo.month+" 2014"+"\n"+silo.name+"\n"
                                   +"\n"
-                                  +"Partner Views are: "+silo.partViews+"\n"
+                                  +"Partner Views are: "+partViews+"\n"
                                   +"Non-Ad Requested Views: "+partNAdViews+"\n"
-                                  +"Partner Revenue is: "+silo.partEarnings+"\n"
-                                  +"Partner Ad Enabled Views are: "+silo.partAdViews+"\n"
+                                  +"Partner Revenue is: "+partRev+"\n"
+                                  +"Partner Ad Enabled Views are: "+partAdViews+"\n"
                                   +"Partner Thousands of Ad Enabled Views: "+partTAViews+"\n"
                                   +"CPM: "+partnerCPM+"\n"
                                   +"INDMusic Percentage: "+partPercentage+"\n"
