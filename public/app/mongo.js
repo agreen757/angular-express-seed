@@ -78,6 +78,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     
     function writer(silo,cb){
         
+        
         if(silo.partViews == null){
             var partViews = 0;
             var partRev = 0;
@@ -88,12 +89,13 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             var partViews = silo.partViews;
             var partRev = silo.partEarnings;
             var partAdViews = silo.partAdViews;
+            var partTAViews = partAdViews / 1000;
             var partnerCPM = partRev / partTAViews;
         }
         
         var ugcPercentage = .1
         var partNAdViews = partViews - partAdViews;
-        var partTAViews = partAdViews / 1000;
+        
         //var partnerCPM = partRev / partTAViews;
         if(partnerCPM > 5){
            var partPercentage = 2 * partnerCPM / 100;
