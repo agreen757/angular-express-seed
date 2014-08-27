@@ -24,6 +24,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     //NEED TO WORK OUT THIS EXPORT UTILITY
     
     function queryer(name,month,cb){
+        var premUgc = {};
         db.collection('Reports-'+month).aggregate(
             {$match:{'customId':{"$regex":"^"+name+"$","$options":"i"}}},
            // {$match:{'customId':{$in:[element.customId[0]]}}},
@@ -41,14 +42,32 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                         //console.log(result);
                         result.map(function(element){
                             comb.name = element._id.customId;
-                            if(element._id.contentType == "UGC"){
+                            if(element._id.contentType == "PREMIUM UGC"){
+                                counter++
+                                premUgc.ugcEarnings = element.earnings;
+                                premUgc.ugcViews = element.views;
+                                premUgc.ugcAdViews = element.adViews;
+                                console.log(counter);
+                                if(counter == result.length){
+                                    console.log("sending data to page...1");
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
+                                    return cb(null,comb)
+                                }
+                            }
+                            else if(element._id.contentType == "UGC"){
                                 counter++
                                 comb.ugcEarnings = element.earnings;
                                 comb.ugcViews = element.views;
                                 comb.ugcAdViews = element.adViews;
                                 console.log(counter);
                                 if(counter == result.length){
-                                    console.log("sending data to page...");
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
+                                    console.log(comb.ugcEarnings);
+                                    console.log("sending data to page...2");
                                     return cb(null,comb)
                                 }
                             }
@@ -58,14 +77,22 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 comb.partViews = element.views;
                                 comb.partAdViews = element.adViews;
                                 if(counter == result.length){
-                                    console.log("sending data to page...");
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
+                                    console.log(comb.ugcEarnings);
+                                    console.log("sending data to page...3");
                                     return cb(null,comb)
                                 }
                             }
                             else{
                                 counter++;
                                 if(counter == result.length){
-                                    console.log("sending data to page...");
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
+                                    console.log("sending data to page...4");
+                                    console.log(comb.ugcEarnings);
                                     return cb(null,comb)
                                 }
                             }
@@ -217,6 +244,34 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
         })
     }
     
+    exports.auth = function(email,cb){
+        //console.log(id)
+        //var k = function(){
+            db.collection('users').findOne({email:email}, function(err,docs){
+                //console.log(docs);
+                if(docs){
+                    if(docs.approved){
+                        //console.log(docs);
+                        return cb(null,true);
+                    }
+                    else if(!docs.approved){
+                        return cb(null,false);
+                    }   
+                }
+                else{
+                    return cb(null,false);
+                }
+            })   
+        //}
+        
+    }
+    
+    exports.signup = function(email,cb){
+        db.collection('users').update({email:email},{$set:{email:email}},{upsert:true}, function(err,res){
+                return cb(null,"updated");
+            })
+    }
+    
     exports.dl = function(request,month,cb){
         silo = {};
         
@@ -322,7 +377,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     exports.query = function(request,month,cb){
         console.log("executing query...")
-        
+        var premUgc = {}; 
         //INSERT THE AGGREGATOR
         db.collection('Reports-'+month).aggregate(
             {$match:{'customId':{"$regex":"^"+request+"$","$options":"i"}}},
@@ -341,13 +396,30 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                         console.log(result);
                         result.map(function(element){
                             comb.name = element._id.customId;
-                            if(element._id.contentType == "UGC"){
+                            if(element._id.contentType == "PREMIUM UGC"){
+                                counter++
+                                premUgc.ugcEarnings = element.earnings;
+                                premUgc.ugcViews = element.views;
+                                premUgc.ugcAdViews = element.adViews;
+                                console.log(counter);
+                                if(counter == result.length){
+                                    console.log("sending data to page...1");
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
+                                    return cb(null,comb)
+                                }
+                            }
+                            else if(element._id.contentType == "UGC"){
                                 counter++
                                 comb.ugcEarnings = element.earnings;
                                 comb.ugcViews = element.views;
                                 comb.ugcAdViews = element.adViews;
                                 console.log(counter);
                                 if(counter == result.length){
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
                                     console.log("sending data to page...");
                                     return cb(null,comb)
                                 }
@@ -358,6 +430,9 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 comb.partViews = element.views;
                                 comb.partAdViews = element.adViews;
                                 if(counter == result.length){
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
                                     console.log("sending data to page...");
                                     return cb(null,comb)
                                 }
@@ -365,6 +440,9 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                             else{
                                 counter++;
                                 if(counter == result.length){
+                                    comb.ugcAdViews+=premUgc.ugcAdViews;
+                                    comb.ugcEarnings+=premUgc.ugcEarnings;
+                                    comb.ugcViews+=premUgc.ugcViews;
                                     console.log("sending data to page...");
                                     return cb(null,comb)
                                 }
