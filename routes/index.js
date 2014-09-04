@@ -3,12 +3,25 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
-    res.render('index', { title: 'Express' });
+
+exports.login = function(req, res){
+    res.render('login', {title: 'Express'})
 };
 
+exports.index = function(req, res){
+    res.render('index', { status: 'Log in' });
+};
+
+exports.signup = function(req,res){
+    //console.log(req.user[0].profile.id)
+    res.render('signup',{foo: 'bar'});
+}
+
 exports.reports = function(req, res){
-    res.render('report', { title: 'Express' });
+    var user = req.user[0].profile.displayName
+    var status = "Log out";
+    //console.log(user);
+    res.render('report', { user: user, status: status });
 };
 
 /** serve jade enabled partials */

@@ -1,0 +1,12 @@
+.container-fluid
+    .row
+        .jumbotron
+            center
+                h1 Sign Up!
+.container
+    .row
+        center
+            h1 {{results}}
+            input(placeholder="you@blank.com", ng-model="signup.email", name="name")
+            button.btn.btn-primary(ng-click="request(signup)") Submit
+    
