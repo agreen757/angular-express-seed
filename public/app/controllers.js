@@ -4,6 +4,13 @@ controllers.controller('IndexController', ['$scope', function($scope) {
     $scope.message = 'DDEX METADATA TEMPLATE';
     $scope.name = 'bob';
     $scope.info = [];
+    
+    $scope.isActive = function (viewLocation) {
+         console.log(viewLocation)
+         var active = (viewLocation === $location.path());
+         return active;
+    };
+    
     $scope.save = function(file){
         if($scope.metadata.$valid){
             $scope.info.push({filename:$scope.metadata.filename.$modelValue,type:$scope.metadata.type.$modelValue,isrc:$scope.metadata.isrc.$modelValue});
@@ -23,6 +30,22 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
     $scope.message = 'Another Page';
     //$scope.name = 'bob';
 }]);
+
+controllers.controller('login', ['$scope','$http', function($scope, $http) {
+    
+}])
+
+controllers.controller('signup', ['$scope','$http', function($scope, $http) {
+    $scope.signup = function(id){
+        console.log(id);
+    }
+    $scope.request = function(signup){
+        $http.put('/ask', {email:signup.email}).success(function(data,status,headers){
+            console.log(status);
+            $scope.results = data.message;
+        })
+    }
+}])
 
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
