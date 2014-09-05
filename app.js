@@ -128,8 +128,8 @@ app.put('/ask', function(req,res){
 app.get('/signup', signupAsk, routes.signup);
 
 //****************INSERTED THE ENSUREAUTHENTICATION PIECE HERE IN FRONT OF THE REPORT VIEW - WORKS AS USUAL 
-app.get('/report', ensureAuthenticated,ensureApproved,routes.reports);
-app.get('/partials/:name', routes.partials);
+app.get('/report', routes.reports);
+app.get('/partials/:name', ensureAuthenticated,ensureApproved,routes.partials);
 app.get('*', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
