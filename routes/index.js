@@ -18,7 +18,9 @@ exports.signup = function(req,res){
 }
 
 exports.reports = function(req, res){
-    var user = req.user[0].profile.displayName
+    if(req.user[0].profile){
+        var user = req.user[0].profile.displayName   
+    }
     var status = "Log out";
     //console.log(user);
     res.render('report', { user: user, status: status });
