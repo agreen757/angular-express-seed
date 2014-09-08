@@ -62,6 +62,8 @@ passport.use(new GoogleStrategy({
 }*/
 
 app.get('/', routes.index);
+app.get('/login', routes.login);
+
 app.put('/query', function(req,res){
     console.log(req.body)
     res.setHeader("Content-Type", "text/html");
@@ -98,3 +100,33 @@ app.get('*', routes.index);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { 
+      return next(); 
+  
+  }
+  res.redirect('/login')
+}
+
+function ensureApproved(req, res, next){
+    console.log('in ensure approved')
+    //console.log(req.user[0].profile)
+    auth.auth(req.user[0].profile._json.email,function(err,data){
+          console.log(data)
+          if(data){
+              return next();
+          }
+          else{
+              console.log('not approved');
+              //res.cookie()
+              res.redirect('/signup');
+          }
+      })
+}
+
+function signupAsk(req,res,next){
+    console.log(req.user[0].profile.id)
+    console.log('in the signup ask')
+    return next();
+}
