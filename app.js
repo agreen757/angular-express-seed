@@ -7,6 +7,8 @@ var express = require('express'),
     routes = require('./routes'),
     http = require('http'),
     bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
     methodOverride = require('method-override'),
     path = require('path'),
     reports = require('./public/app/mongo.js');
@@ -19,7 +21,15 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(bodyParser());
 app.use(methodOverride());
+app.use(session({secret: '1234567890INDMUSIC'}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// development only
+/*if ('development' == app.get('env')) {
+  app.use(express.errorHandler());
+}*/
+
 
 //PASSPORT INSERT BEGIN
 var passport = require('passport');
@@ -41,7 +51,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/callback"
+    callbackURL: "http://http://54.84.17.96:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -56,13 +66,24 @@ passport.use(new GoogleStrategy({
 ));
 //PASSPORT INSERT BEGIN
 
-// development only
-/*if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}*/
 
 app.get('/', routes.index);
-app.get('/login', routes.login);
+app.get('/login', routes.login)
+
+//*************AUTH AND CALLBACK SECTION
+app.get('/auth',
+    passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/yt-analytics-monetary.readonly', 'https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/youtubepartner', 'https://www.googleapis.com/auth/analytics', 'https://www.googleapis.com/auth/analytics.edit', 'https://www.googleapis.com/auth/analytics.readonly', 'https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/drive.file','https://www.googleapis.com/auth/drive.readonly','https://www.googleapis.com/auth/drive.metadata.readonly','https://www.googleapis.com/auth/drive.appdata','https://www.googleapis.com/auth/drive.apps.readonly'],
+                                     accessType:'offline', approvalPrompt:'force'})
+);
+
+app.get('/auth/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/report');
+    }
+
+);
+//*************AUTH AND CALLBACK SECTION END
 
 app.put('/query', function(req,res){
     console.log(req.body)
@@ -93,7 +114,7 @@ app.put('/export', function(req,res){
         res.send({data:"got it"})
     })
 })
-//************REQUEST AN ACCOUNT
+
 app.put('/ask', function(req,res){
     console.log(req.body);
     res.setHeader("Content-Type", "text/html");
@@ -104,14 +125,17 @@ app.put('/ask', function(req,res){
     
 })
 
+app.get('/signup', signupAsk, routes.signup);
 
-app.get('/report', routes.reports);
+//****************INSERTED THE ENSUREAUTHENTICATION PIECE HERE IN FRONT OF THE REPORT VIEW - WORKS AS USUAL 
+app.get('/report', ensureAuthenticated,ensureApproved,routes.reports);
 app.get('/partials/:name', routes.partials);
 app.get('*', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { 
