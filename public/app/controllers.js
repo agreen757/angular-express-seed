@@ -29,7 +29,7 @@ controllers.controller('Signup', ['$scope','$http', function($scope, $http) {
     $scope.register = function(user){
         console.log(user);
         //$scope.message = "Okay cool - you will be receiving an email shortly with an invite"
-        $http.put('/register', {email:user.email}).success(function(data,status,headers){
+        $http.put('/register', {email:user.email,name:user.name}).success(function(data,status,headers){
             console.log(status)
             $scope.message = "Okay cool - you will be receiving an email shortly with an invite"
         })

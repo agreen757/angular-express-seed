@@ -48,6 +48,8 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
+//http://localhost:3000/auth/callback
+
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
@@ -118,7 +120,7 @@ app.put('/export', function(req,res){
 app.put('/register', function(req,res){
     console.log(req.body);
     res.setHeader("Content-Type", "text/html");
-    reports.signup(req.body.email, function(err,response){
+    reports.signup(req.body.email,req.body.name, function(err,response){
         if(err){console.log(err)}
         res.send({message:"Thank you, we will add your account shortly..."})
     })

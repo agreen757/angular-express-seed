@@ -9,8 +9,11 @@
     .row
         center
             h2 {{message}}
-            form(name="signup", ng-class="{ 'has-error': signup.email.$invalid }",style="width:30%;")
-                input(placeholder="Enter your email address", ng-model="user.email", name="email")
-                br
-                button.btn.btn-primary(ng-click="register(user)") Submit
+            form.form-inline(role="form", name="signup", ng-class="{ 'has-error': signup.email.$invalid }",style="width:30%;")
+                div.form-group
+                    div.input-group
+                        input(placeholder="Enter your name", ng-model="user.name", name="name",id="username")
+                        div.input-group-addon @
+                        input(type="email",placeholder="Enter your email", ng-model="user.email", name="email",id="emailaddress")
+                button.btn.btn-default(ng-click="register(user)") Submit
     
