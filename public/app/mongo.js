@@ -42,6 +42,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                         //console.log(result);
                         result.map(function(element){
                             comb.name = element._id.customId;
+                            var ugcType = element._id.contentType
                             if(element._id.contentType == "PREMIUM UGC"){
                                 counter++
                                 premUgc.ugcEarnings = element.earnings;
@@ -49,11 +50,17 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 premUgc.ugcAdViews = element.adViews;
                                 console.log(counter);
                                 if(counter == result.length){
-                                    console.log("sending data to page...1");
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             else if(element._id.contentType == "UGC"){
@@ -63,12 +70,17 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 comb.ugcAdViews = element.adViews;
                                 console.log(counter);
                                 if(counter == result.length){
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    console.log(comb.ugcEarnings);
-                                    console.log("sending data to page...2");
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             else if(element._id.contentType == "PARTNER-PROVIDED"){
@@ -77,23 +89,33 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 comb.partViews = element.views;
                                 comb.partAdViews = element.adViews;
                                 if(counter == result.length){
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    console.log(comb.ugcEarnings);
-                                    console.log("sending data to page...3");
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             else{
                                 counter++;
                                 if(counter == result.length){
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    console.log("sending data to page...4");
-                                    console.log(comb.ugcEarnings);
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             
@@ -403,11 +425,17 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 premUgc.ugcAdViews = element.adViews;
                                 console.log(counter);
                                 if(counter == result.length){
-                                    console.log("sending data to page...1");
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             else if(element._id.contentType == "UGC"){
@@ -417,11 +445,17 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 comb.ugcAdViews = element.adViews;
                                 console.log(counter);
                                 if(counter == result.length){
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    console.log("sending data to page...");
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             else if(element._id.contentType == "PARTNER-PROVIDED"){
@@ -430,21 +464,33 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                 comb.partViews = element.views;
                                 comb.partAdViews = element.adViews;
                                 if(counter == result.length){
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    console.log("sending data to page...");
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             else{
                                 counter++;
                                 if(counter == result.length){
-                                    comb.ugcAdViews+=premUgc.ugcAdViews;
-                                    comb.ugcEarnings+=premUgc.ugcEarnings;
-                                    comb.ugcViews+=premUgc.ugcViews;
-                                    console.log("sending data to page...");
-                                    return cb(null,comb)
+                                    if(premUgc.ugcAdViews){
+                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                        comb.ugcViews+=premUgc.ugcViews;
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)   
+                                    }
+                                    else{
+                                        console.log("sending data to page...");
+                                        return cb(null,comb)
+                                    }
                                 }
                             }
                             
