@@ -273,11 +273,11 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 //console.log(docs);
                 if(docs){
                     console.log(docs);
-                    if(docs.approved === "yes"){
+                    if(docs.status == "yes"){
                         //console.log(docs);
                         return cb(null,true);
                     }
-                    else if(!docs.approved){
+                    else if(docs.status == "pending"){
                         return cb(null,false);
                     }   
                 }
