@@ -21,6 +21,41 @@ app.use(bodyParser());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//PASSPORT INSERT BEGIN
+var passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GOOGLE_CLIENT_ID = "468772544188.apps.googleusercontent.com";
+var GOOGLE_CLIENT_SECRET = "LufQkK0YPcHbKetle54m8p2I";
+var auth = require('./public/app/mongo.js');
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+passport.use(new GoogleStrategy({
+    clientID: GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    // asynchronous verification, for effect...                                                                    
+    process.nextTick(function (){
+
+      // Changing this to return the accessToken instead of the profile information                                
+        console.log(profile.displayName);                                                                        
+        
+      return done(null, [{token:accessToken,rToken:refreshToken,'profile':profile}]);
+    });
+  }
+));
+//PASSPORT INSERT BEGIN
+
 // development only
 /*if ('development' == app.get('env')) {
   app.use(express.errorHandler());
