@@ -272,7 +272,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             db.collection('users').findOne({email:email}, function(err,docs){
                 //console.log(docs);
                 if(docs){
-                    if(docs.approved){
+                    if(docs.approved === "yes"){
                         //console.log(docs);
                         return cb(null,true);
                     }
