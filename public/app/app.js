@@ -17,7 +17,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/signup', {
             templateUrl: 'partials/signup',
-            controller: 'signup'
+            controller: 'Signup'
         })
         .when('/login', {
             templateUrl: 'partials/login',

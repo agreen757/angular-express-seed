@@ -7,5 +7,9 @@
 .container
     .row
         center
-            button.btn.btn-primary(ng-click="signup(#{foo})") Here
+            h2 {{message}}
+            form(name="signup", ng-class="{ 'has-error': signup.email.$invalid }",style="width:30%;")
+                input(placeholder="Enter your email address", ng-model="user.email", name="email")
+                br
+                button.btn.btn-primary(ng-click="register(user)") Submit
     

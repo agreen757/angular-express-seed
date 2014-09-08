@@ -24,6 +24,19 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
     //$scope.name = 'bob';
 }]);
 
+controllers.controller('Signup', ['$scope','$http', function($scope, $http) {
+    console.log('in the proper')
+    $scope.register = function(user){
+        console.log(user);
+        $scope.message = "Okay cool - you will be receiving an email shortly with an invite"
+        /*$http.put('/register', {email:user.email}).success(function(data,status,headers){
+            console.log(status)
+            $scope.message = "Okay cool - you will be receiving an email shortly with an invite"
+        })*/
+    }
+    
+}])
+
 controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.header = 'Reports'
     $scope.display = 'none'
