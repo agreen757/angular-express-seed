@@ -93,6 +93,18 @@ app.put('/export', function(req,res){
         res.send({data:"got it"})
     })
 })
+//************REQUEST AN ACCOUNT
+app.put('/ask', function(req,res){
+    console.log(req.body);
+    res.setHeader("Content-Type", "text/html");
+    reports.signup(req.body.email, function(err,response){
+        if(err){console.log(err)}
+        res.send({message:"Thank you, we will add your account shortly..."})
+    })
+    
+})
+
+
 app.get('/report', routes.reports);
 app.get('/partials/:name', routes.partials);
 app.get('*', routes.index);
