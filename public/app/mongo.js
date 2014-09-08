@@ -289,7 +289,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     
     exports.signup = function(email,cb){
-        db.collection('users').update({email:email},{$set:{email:email}},{upsert:true}, function(err,res){
+        db.collection('users').update({email:email},{$set:{email:email, approved:"pending"}},{upsert:true}, function(err,res){
                 return cb(null,"updated");
             })
     }
