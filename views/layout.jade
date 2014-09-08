@@ -10,5 +10,25 @@ html(ng-app="myapp")
     script(src="app/directives.js",type="application/javascript")
     
   body
+  navbar.navbar-default.navbar-fixed-top(role="navigation")
+        .container
+            .navbar-header
+                a.navbar-brand(href="#") INDMusic Network {{header}}
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li(ng-class="{ active: isActive('/') }")
+                        a(href="/") Home
+                    li  
+                        a(href="/report", target="_self") Reports
+                    li
+                        a(href="#") Updates
+                        
+                ul.nav.navbar-nav.navbar-right
+                    li  
+                        a(href="#") #{user} <!-- user variable from the router -->
+                        
+                    li
+                        a(href="#") #{status}
+
     div(ng-view)
         block content
