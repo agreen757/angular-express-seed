@@ -149,8 +149,8 @@ function ensureApproved(req, res, next){
     console.log('in ensure approved')
     //console.log(req.user[0].profile)
     auth.auth(req.user[0].profile._json.email,function(err,data){
-          console.log(data+" this is data")
-          if(data === "yes"){
+          console.log(data)
+          if(data === true){
               return next();
           }
           else{
