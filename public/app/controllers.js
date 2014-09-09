@@ -24,6 +24,12 @@ controllers.controller('AnotherController', ['$scope', function($scope) {
     //$scope.name = 'bob';
 }]);
 
+controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
+    $scope.message = 'dashboard';
+    
+    //$scope.name = 'bob';
+}]);
+
 controllers.controller('Signup', ['$scope','$http', function($scope, $http) {
     console.log('in the proper')
     $scope.register = function(user){

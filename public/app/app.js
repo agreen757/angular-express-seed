@@ -11,6 +11,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'partials/index',
             controller: 'AnotherController'
         })
+        .when('/dashboard', {
+            templateUrl: 'partials/mydash',
+            controller: 'dashboard'
+        })
         .when('/report', {
             templateUrl: 'partials/report',
             controller: 'Reports'

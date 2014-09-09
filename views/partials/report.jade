@@ -47,6 +47,7 @@
         div.col-md-6(style="border:solid #eee;padding:20px;")
             center
                 h2 Enter 'customID' Identifier
+                hr
             form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
                 select.form-control(name="month", ng-model="request.month")
                     option February
@@ -55,6 +56,7 @@
                     option May
                     option June
                     option July
+                    option August
                 input(placeholder="Enter a Custom ID", ng-model="request.name", name="name")
                 button.btn.btn-primary(ng-click="query(request)") Preview
                 br
@@ -63,6 +65,7 @@
         div.col-md-6(style="border:solid #eee;padding:20px;")
             center
                 h2 Enter 'NOTES' Identifier
+                hr
             form(name="inputInfoNotes", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
                 select.form-control(name="month", ng-model="notes.month")
                     option February
@@ -71,6 +74,7 @@
                     option May
                     option June
                     option July
+                    option August
                 input(placeholder="eg. TUNECORE", ng-model="notes.name", name="name")
                 button.btn.btn-primary(ng-click="queryNotes(request)") Preview  
                 br

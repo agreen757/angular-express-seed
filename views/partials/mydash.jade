@@ -1,0 +1,26 @@
+.container-fluid
+    .row
+        .jumbotron
+            center
+                h1 {{message}}
+                h3 Hello #{user} your report is below
+                
+.container
+    div.row
+        div.col-md-6(style="border:solid #eee;padding:20px;")
+            center
+            form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
+                h2 Month
+                hr
+                select.form-control(name="month", ng-model="request.month")
+                    option February
+                    option March
+                    option April
+                    option May
+                    option June
+                    option July
+                button.btn.btn-primary(ng-click="query(request)") Preview
+                br
+                button.btn.btn-primary(ng-click="export(request)") Export
+                
+                

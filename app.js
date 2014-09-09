@@ -53,7 +53,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -71,6 +71,7 @@ passport.use(new GoogleStrategy({
 
 app.get('/', routes.index);
 app.get('/login', routes.login)
+app.get('/dashboard', routes.dashboard)
 
 //*************AUTH AND CALLBACK SECTION
 app.get('/auth',

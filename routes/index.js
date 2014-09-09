@@ -17,6 +17,11 @@ exports.signup = function(req,res){
     res.render('signup',{foo: 'bar'});
 }
 
+exports.dashboard = function(req,res){
+    //get user details from req
+    res.render('mydash', {user:"foo"})
+}
+
 exports.reports = function(req, res){
     if(req.user){
         var user = req.user[0].profile.displayName   
