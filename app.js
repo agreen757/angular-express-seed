@@ -11,7 +11,9 @@ var express = require('express'),
     session = require('express-session'),
     methodOverride = require('method-override'),
     path = require('path'),
-    reports = require('./public/app/mongo.js');
+    reports = require('./public/app/mongo.js'),
+    csv = require('ya-csv'),
+    async = require('async');
 
 var app = express();
 
@@ -19,7 +21,7 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(bodyParser());
+app.use(express.bodyParser());
 app.use(methodOverride());
 app.use(session({secret: '1234567890INDMUSIC'}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,7 +55,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -70,8 +72,14 @@ passport.use(new GoogleStrategy({
 
 
 app.get('/', routes.index);
-app.get('/login', routes.login)
-app.get('/dashboard', routes.dashboard)
+app.get('/login', routes.login);
+app.get('/dashboard', routes.dashboard);
+app.get('/getId', function(req,res){
+    if(req.user){
+       res.send(req.user[0].profile._json.id) 
+    }
+    
+})
 
 //*************AUTH AND CALLBACK SECTION
 app.get('/auth',
@@ -88,6 +96,19 @@ app.get('/auth/callback',
 );
 //*************AUTH AND CALLBACK SECTION END
 
+app.put('/getMonths', function(req,res){
+    var months = req.body.months
+    //var user = req.user[0].
+    console.log(req.body.months+" in app.js")
+    var b = 0;
+    var c = setTimeout(function(){
+        reports.hotness(months.toString(),function(err,gdata,topdata){
+            //console.log(topdata)
+            res.send({gdata:gdata,topdata:topdata})
+    })  
+    },b+=2000)
+})
+
 app.put('/query', function(req,res){
     console.log(req.body)
     res.setHeader("Content-Type", "text/html");
@@ -102,6 +123,50 @@ app.post('/download', function(req,res){
     res.download(__dirname +'/'+ req.body.file+'.csv', function(err){
         if(err){console.log(err)}
     })
+})
+app.post('/metaParse', function(req,res){
+    //console.log(req.files);
+    var file = req.files.uploadmeta.name;
+    var path = req.files.uploadmeta.ws.path
+    res.send({name:file,path:path});
+    
+})
+app.put('/makeddex', function(req,res){
+    console.log(req);
+    //**************************************
+    /*
+    OKAY THIS MAY BE A BIT OF A THING
+    
+    WE NEED TO GET THE READ THE UPLOADED CSV FILE AND FOR EVERY 'FILENAME' WE ARE GOING TO HAVE TO SEARCH THE FILES ARRAY FOR THE PATH
+    
+    RIGHT HERE, WE WILL MOST LIKELY USE AN EXTERNAL MODULE BULT FROM OUR EXISTING SOUNDCLOUD_DDEX.JS FILE
+    */
+    res.send('ok');
+})
+app.post('/fileUpload', function(req,res){
+    
+    //*******************************
+    //********HOW WE ARE ROCKING THIS SHIT****************
+    /*
+    WE ARE GETTING THE FILES AND NAME DIRECLTY FROM THE FORM VIA RES.FILES
+    
+    THIS SURPRISINGLY WORKS AND IS PROBABLY ANOTHER REASON WHY WE CANT UPGRADE EXPRESS
+    
+    WE CAN GET THE FILES DIRECLTY FROM THE HTML USING THE new FormData() FUNCTION THATS ON THE HTML PRESENTLY
+    
+    LET US GET AROUND USING SOCKET.IO OR ANOTHER ONE OF THOSE JANKY AS FUCK ANGULAR UPLOAD FUNCTIONS 
+    
+    SO THIS MAKES OUR NEW APP A HYBRID EVEN MORESO
+    */
+    //**********************************
+    
+    //console.log(req.files);
+    var file = req.files.uploadfile.name;
+    var path = req.files.uploadfile.ws.path;
+    
+    //send the two variables to the page to be stored in client-side variables
+    res.send({name:file,path:path})
+    
 })
 app.put('/queryNotes', function(req,res){
     console.log(req.body);

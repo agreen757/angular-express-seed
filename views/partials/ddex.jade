@@ -1,0 +1,90 @@
+.container-fluid
+    .row
+        .jumbotron
+            center
+                h1 DDEX GENERATOR
+                h3 Upload your files and press GENERATE
+                hr(style="color:black;")
+                form(enctype="multipart/form-data", id="generate")
+                    .form-group
+                        input(value="Generate", type="button", class="btn btn-primary", style="display:none",id="foo")
+
+.container
+    center
+        table.table
+            thead    
+                tr
+                    th Files list
+            tbody        
+                tr
+                    td
+                
+.containter(id="files")
+    .row
+        div.col-md-6(style="padding:70px")
+            h2 Upload files
+            form(enctype="multipart/form-data", id="files")
+                .form-group
+                    input(name="uploadfile", type="file", id="myFile")
+                    input(value="UPLOAD", id="upload",type="button", class="btn btn-primary")
+                    
+        div.col-md-6(style="padding:70px;background-color:#eee")
+            h2 Upload metadata (.csv)
+            form(enctype="multipart/form-data", id="metadata")
+                .form-group
+                    input(name="uploadmeta", type="file", id="meta")
+                    input(value="UPLOAD",id="upmeta",type="button", class="btn btn-primary")
+        
+        
+script(type="text/javascript").
+    var files = [];
+    var metadata = {};
+    $('#upload').click(function(){
+        var formData = new FormData($('form#files')[0]);
+        console.log(formData)
+        $.ajax({
+            url: '/fileUpload',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data){
+                //console.log(data);
+                files.push(data);
+                $('.table tbody:last').after('<tr><td>'+data.name+'</td></tr>');
+                $('form#files')[0].reset();
+            }
+        })
+    })
+    $('#upmeta').click(function(){
+        console.log(files);
+        var formData = new FormData($('form#metadata')[0]);
+        $.ajax({
+            url:'/metaParse',
+            type: 'POST',
+            data: formData,
+            processData: false,  //***********THESE TWO PROPERTIES ARE NEEDED IN ORDER TO UPLOAD FILES
+            contentType: false,
+            success: function(data){
+                console.log(data)
+                metadata.name = data.name;
+                metadata.path = data.path;
+                $('form#metadata')[0].reset();
+                $("#foo").show();
+            }
+        })
+    })
+    $('#foo').click(function(){
+        console.log("trying");
+        $.ajax({
+            url: '/makeddex',
+            type: 'PUT',
+            data: {meta:metadata,files:files},
+            success: function(data){
+                console.log(data);
+            }
+        })
+    })
+    
+    
+                

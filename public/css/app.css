@@ -28,3 +28,24 @@
   content: "";
   padding: 0;
 }
+
+.trends {
+    height: 20.5em;
+    width: 20.5em;
+    float: left;
+    border: solid 10px #eee;
+    margin-left: 2.5em;
+}
+
+#loading {
+    height: 2.5em;
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    background: url('../images/ajax-loader.gif');
+    background-size: cover;
+}
+
+#hovertest:hover {
+    background-color: #eee;
+}

@@ -12,8 +12,12 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'AnotherController'
         })
         .when('/dashboard', {
-            templateUrl: 'partials/mydash',
+            templateUrl: 'partials/reportView',
             controller: 'dashboard'
+        })
+        .when('/ddex', {
+            templateUrl: 'partials/ddex',
+            controller: 'ddex'
         })
         .when('/report', {
             templateUrl: 'partials/report',
@@ -27,9 +31,9 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'partials/login',
             controller: 'login'
         })
-   /* .otherwise({
+    .otherwise({
         redirectTo: '/'
-    });*/
+    });
 }]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.html5Mode(true);
 }]);

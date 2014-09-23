@@ -289,6 +289,144 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
         
     }
     
+    exports.hotness = function(months,cb){
+        console.log('in the months');
+        //console.log(typeof months)
+        var month = months.split(',');
+        
+        //*************GET CHANNEL CHANNEL PERFORMANCE INFO FOR THE PAST THREE MONTHS
+        db.collection('Reports-Channel-Final').find({channel:"9LILG",month:{$in:[month[0],month[1],month[2]]}}).toArray(function(err,res){
+            //console.log(res);
+            var data = res;//**************GET THE HIGHEST PERFORMING VIDEO FOR THE CUSTOM ID
+            db.collection('Reports-'+month[0]).find({customId:"9LILG"}).sort({tEarnings:-1}).limit(1).toArray(function(err,res2){
+                if(err){
+                    console.log(err)
+                }
+                //console.log(res)
+                return cb(null,res,res2);
+            })
+        })
+    }
+    
+    exports.finder = function(month,id,cb){
+        console.log('in the finder');
+        
+        /*
+        Need to fill out a database with all of the accepted client's google ids as well as their customId.
+        Once we have this we can do queries just like we do on our dashboard
+        */
+        
+        //async.series([
+            //FIND THE USER BY ID 
+            //function(callback){
+                db.collection('users').findOne({userId:id}, function(err,docs){
+                    if(!docs){
+                        return cb(null,false)
+                    }
+                    else{
+                        db.collection('Reports-'+month).aggregate(
+                            {$match:{'customId':{"$regex":"^"+docs.channel+"$","$options":"i"}}},
+                           // {$match:{'customId':{$in:[element.customId[0]]}}},
+                            {
+                                $group: {
+                                    //_id: "$notes",
+                                    _id: {customId:"$customId",contentType:"$contentType",month:"$month"},
+                                    earnings: {$sum: "$tEarnings"},
+                                    views: {$sum: "$tViews"},
+                                    adViews: {$sum: "$adViews"}
+                                }}, function(err,result){
+                                        var comb = {month:month};
+                                        var counter = 0;
+
+                                        console.log(result);
+                                        result.map(function(element){
+                                            comb.name = element._id.customId;
+                                            if(element._id.contentType == "PREMIUM UGC"){
+                                                counter++
+                                                premUgc.ugcEarnings = element.earnings;
+                                                premUgc.ugcViews = element.views;
+                                                premUgc.ugcAdViews = element.adViews;
+                                                console.log(counter);
+                                                if(counter == result.length){
+                                                    if(premUgc.ugcAdViews){
+                                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                                        comb.ugcViews+=premUgc.ugcViews;
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)   
+                                                    }
+                                                    else{
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)
+                                                    }
+                                                }
+                                            }
+                                            else if(element._id.contentType == "UGC"){
+                                                counter++
+                                                comb.ugcEarnings = element.earnings;
+                                                comb.ugcViews = element.views;
+                                                comb.ugcAdViews = element.adViews;
+                                                console.log(counter);
+                                                if(counter == result.length){
+                                                    if(premUgc.ugcAdViews){
+                                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                                        comb.ugcViews+=premUgc.ugcViews;
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)   
+                                                    }
+                                                    else{
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)
+                                                    }
+                                                }
+                                            }
+                                            else if(element._id.contentType == "PARTNER-PROVIDED"){
+                                                counter++
+                                                comb.partEarnings = element.earnings;
+                                                comb.partViews = element.views;
+                                                comb.partAdViews = element.adViews;
+                                                if(counter == result.length){
+                                                    if(premUgc.ugcAdViews){
+                                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                                        comb.ugcViews+=premUgc.ugcViews;
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)   
+                                                    }
+                                                    else{
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)
+                                                    }
+                                                }
+                                            }
+                                            else{
+                                                counter++;
+                                                if(counter == result.length){
+                                                    if(premUgc.ugcAdViews){
+                                                        comb.ugcAdViews+=premUgc.ugcAdViews;
+                                                        comb.ugcEarnings+=premUgc.ugcEarnings;
+                                                        comb.ugcViews+=premUgc.ugcViews;
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)   
+                                                    }
+                                                    else{
+                                                        console.log("sending data to page...");
+                                                        return cb(null,comb)
+                                                    }
+                                                }
+                                            }
+
+                                        })
+
+                                    }
+        )
+                    }
+                })
+            //}
+        //])
+    }
+    
     exports.signup = function(email,name,cb){
         console.log("in signup with "+name+" and "+email)
         db.collection('users').update({email:email},{$set:{email:email,displayName:name, approved:"pending"}},{upsert:true}, function(err,res){
