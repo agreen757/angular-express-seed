@@ -73,7 +73,7 @@ passport.use(new GoogleStrategy({
 
 app.get('/', routes.index);
 app.get('/login', routes.login);
-app.get('/dashboard', routes.dashboard);
+app.get('/dashboard', ensureAuthenticated,ensureApproved,routes.dashboard);
 app.get('/getId', function(req,res){
     if(req.user){
        res.send(req.user[0].profile._json.id) 
