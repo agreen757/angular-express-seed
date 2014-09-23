@@ -136,7 +136,7 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
             {c: [
                 {v: b},
                 {v: data.gdata[1].partEarnings},
-                {v: data.gdata[1].ugcEarnings, f: "1 unit (Out of stock this month)"}/*,
+                {v: data.gdata[1].ugcEarnings, f: "Some conditional message"}/*,
                 {v: 12},
                 {v: 2}*/
             ]},
