@@ -18,8 +18,14 @@ directives.directive('user', function (){
     return {
         
         restrict: 'E',
-        template: '<h1>This is your <em style="color:white">reports</em> dashboard</h1>'
+        template: '<h1>Partner <em style="color:white">Dashboard</em></h1>'
     }   
+})
+directives.directive('mail', function(){
+    return {
+        restrict: 'E',
+        template: '<img src="images/email-icon.png" height="80" width="80" hspace="0" style="position:absolute;"></img>'
+    }
 })
 
 directives.directive('performance', function(){

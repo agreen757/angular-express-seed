@@ -1,4 +1,4 @@
-var controllers = angular.module('myapp.controllers', ['googlechart']);
+var controllers = angular.module('myapp.controllers', ['googlechart','ui.bootstrap']);
 
 controllers.controller('ddex', ['$scope','$http', function($scope,$http){
     $scope.message = "Yo son"
@@ -174,6 +174,25 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
         $scope.loadingstyle = "none";
         $scope.topVideoName = data.topdata[0].videoTitle;
         $scope.topVideoRev = data.topdata[0].tEarnings.toFixed(2);
+        $scope.topUgcName = data.ugcdata[0].videoTitle;
+        $scope.topUgcRev = data.ugcdata[0].tEarnings.toFixed(2);
+        $scope.topPartName = data.partdata[0].videoTitle;
+        $scope.topPartRev = data.partdata[0].tEarnings.toFixed(2);
+        //$scope.myInterval = 5000;
+        /*var slides = $scope.slides = [];
+        $scope.myInterval = 5000;
+        var slides = $scope.slides = [];
+        $scope.addSlide = function() { 
+            var newWidth = 600 + slides.length;
+            slides.push({
+              image: 'http://placekitten.com/' + newWidth + '/300',
+              text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+                ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+            });
+          };
+          for (var i=0; i<4; i++) {
+            $scope.addSlide();
+          } */
         
         //$scope.dashbackgroundurl = "";
         

@@ -302,8 +302,18 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 if(err){
                     console.log(err)
                 }
-                //console.log(res)
-                return cb(null,res,res2);
+                db.collection('Reports-'+month[0]).find({customId:"9LILG",contentType:"UGC"}).sort({tEarnings:-1}).limit(1).toArray(function(err,res3){
+                    if(err){console.log(err)}
+                    
+                    db.collection('Reports-'+month[0]).find({customId:"9LILG",contentType:"PARTNER-PROVIDED"}).sort({tEarnings:-1}).limit(1).toArray(function(err,res4){
+                        if(err){console.log(err)}
+                        
+                        return cb(null,res,res2,res3,res4)
+                    })
+                })
+                //********DO ANOTHER NESTED FIND TO GET THE TOP UGC
+                //********DO ANOTHER NESTED FIND TO GET THE TOP PARTNER VIDEO
+                //return cb(null,res,res2);
             })
         })
     }

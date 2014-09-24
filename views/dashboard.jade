@@ -1,15 +1,27 @@
 doctype
 html(ng-app="myapp")
   head
-    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css')
     link(rel='stylesheet', href="css/app.css")
+    link(rel='stylesheet', href="owl-carousel/owl.carousel.css")
+    link(rel='stylesheet', href="owl-carousel/owl.theme.css")
     script(src="http://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="owl-carousel/owl.carousel.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js",type="application/javascript")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+    script(src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js",type="application/javascript")
     script(src="app/app.js",type="application/javascript")
     script(src="app/controllers.js",type="application/javascript")
     script(src="app/directives.js",type="application/javascript")
     script(src="http://bouil.github.io/angular-google-chart/ng-google-chart.js",type="application/javascript")
+        
+    style.
+        #owl-demo, .item img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
     
   body
   navbar.navbar-default.navbar-fixed-top(role="navigation")
@@ -32,9 +44,11 @@ html(ng-app="myapp")
 
 .container-fluid
     .row
-        .jumbotron(style="background-color:#D64342")
+        .jumbotron(style="background-color:#D64342;padding-bottom:0px")
             center
                 user
                 h2 #{user}
+                h3 <em style="color:white">Have new music? Send it to us</em>
+                    a(href="mailto:dan@indmusicnetwork.com") <img src="images/email-icon.png" height="80" width="80" hspace="0"></img>
 div(ng-view)
     block content

@@ -51,11 +51,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 //http://localhost:3000/auth/callback
+//http://ec2-54-84-17-96.compute-1.amazonaws.com:3000
 
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -73,7 +74,7 @@ passport.use(new GoogleStrategy({
 
 app.get('/', routes.index);
 app.get('/login', routes.login);
-app.get('/dashboard', ensureAuthenticated,ensureApproved,routes.dashboard);
+app.get('/dashboard',routes.dashboard);
 app.get('/getId', function(req,res){
     if(req.user){
        res.send(req.user[0].profile._json.id) 
@@ -102,9 +103,9 @@ app.put('/getMonths', function(req,res){
     console.log(req.body.months+" in app.js")
     var b = 0;
     var c = setTimeout(function(){
-        reports.hotness(months.toString(),function(err,gdata,topdata){
+        reports.hotness(months.toString(),function(err,gdata,topdata,ugcdata,partdata){
             //console.log(topdata)
-            res.send({gdata:gdata,topdata:topdata})
+            res.send({gdata:gdata,topdata:topdata,ugcdata:ugcdata,partdata:partdata})
     })  
     },b+=2000)
 })

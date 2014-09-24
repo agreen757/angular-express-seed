@@ -1,3 +1,4 @@
+//*****TRY THE JQUERY SLIDER FOR THE REPORTING NEEDS http://sorgalla.com/jcarousel/docs/reference/installation.html
 div(id="loading", style="display:{{loadingstyle}}")
 div(style="display:{{loadingstyle}};")
     center
@@ -43,8 +44,8 @@ div.row(style="display:{{dashstyle}}")
         center
             h2 {{currentMonth}} at a glance
             hr
+        h3 On Channel Earnings: {{partRev}}
         h3 UGC Earnings: {{ugcRev}}
-        h3 Partner Earnings: {{partRev}}
         hr
         center
             p {{alert}}
@@ -75,10 +76,40 @@ div.row(style="display:{{dashstyle}}")
             p(style="display:{{genstyle}}") Generating.....
             
     div.col-md-6(style="background-color:#d64342;padding:20px;height:22.914em;")
-        center
-            performance
-            hr
-            h2 
-                em {{topVideoName}}
-            h3  
-                em(style="color:white") ${{topVideoRev}}
+        div#owl-example.owl-carousel.owl-theme
+            div.item
+                center
+                    performance
+                    hr
+                    h2 
+                        em {{topVideoName}}
+                    h3  
+                        em(style="color:white") ${{topVideoRev}}
+            div.item
+                center
+                    h2 Your top <em style="color:white;">UGC</em> video
+                    hr
+                    h2
+                        em {{topUgcName}}
+                    h3
+                        em(style="color:white") ${{topUgcRev}}
+            div.item
+                center
+                    h2 Your top <em style="color:white;">On Channel</em> video
+                    hr
+                    h2
+                        em {{topPartName}}
+                    h3
+                        em(style="color:white") ${{topPartRev}}
+        
+script(type="text/javascript").
+        $(document).ready(function() {
+ 
+            $("#owl-example").owlCarousel({
+                navigation : true,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem: true
+          });
+        });
+        
