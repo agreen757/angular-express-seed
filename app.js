@@ -13,7 +13,8 @@ var express = require('express'),
     path = require('path'),
     reports = require('./public/app/mongo.js'),
     csv = require('ya-csv'),
-    async = require('async');
+    async = require('async'),
+    ddex = require('./public/app/ddex.js');
 
 var app = express();
 
@@ -56,7 +57,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -118,6 +119,19 @@ app.put('/query', function(req,res){
         res.send({data:response});
     })
 })
+
+app.post('/ddexdownload', function(req,res){
+    console.log(req.body);
+    if(req.body){
+        var foo = req.body.file.split('.');
+        var name = foo[0]
+        console.log(name+'.xml')
+        res.download(__dirname +'/'+ name+'.xml', function(err){
+            if(err){console.log(err)}
+        })   
+    }
+})
+
 app.post('/download', function(req,res){
     console.log(req.body)
     //res.setHeader("Content-Type", "text/html");
@@ -133,8 +147,20 @@ app.post('/metaParse', function(req,res){
     
 })
 app.put('/makeddex', function(req,res){
-    console.log(req);
+    var reader = csv.createCsvFileReader(req.body.meta.path, {columnsFromHeader:true,'separator': ','});
+    //************************************
+    //SEND ALL OF THIS METADATA OVER TO THE DDEX GENERATION MODULE
     //**************************************
+    
+    
+    ddex.soundcloud(req.body.meta,req.body.files,function(err,data){
+        if(err){console.log(err)};
+        
+        console.log(data);
+        res.send(data);
+    })
+    
+    
     /*
     OKAY THIS MAY BE A BIT OF A THING
     
@@ -142,7 +168,6 @@ app.put('/makeddex', function(req,res){
     
     RIGHT HERE, WE WILL MOST LIKELY USE AN EXTERNAL MODULE BULT FROM OUR EXISTING SOUNDCLOUD_DDEX.JS FILE
     */
-    res.send('ok');
 })
 app.post('/fileUpload', function(req,res){
     
@@ -155,7 +180,7 @@ app.post('/fileUpload', function(req,res){
     
     WE CAN GET THE FILES DIRECLTY FROM THE HTML USING THE new FormData() FUNCTION THATS ON THE HTML PRESENTLY
     
-    LET US GET AROUND USING SOCKET.IO OR ANOTHER ONE OF THOSE JANKY AS FUCK ANGULAR UPLOAD FUNCTIONS 
+    THIS LET US GET AROUND USING SOCKET.IO OR ANOTHER ONE OF THOSE JANKY AS FUCK ANGULAR UPLOAD FUNCTIONS 
     
     SO THIS MAKES OUR NEW APP A HYBRID EVEN MORESO
     */

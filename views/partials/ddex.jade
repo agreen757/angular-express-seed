@@ -8,6 +8,8 @@
                 form(enctype="multipart/form-data", id="generate")
                     .form-group
                         input(value="Generate", type="button", class="btn btn-primary", style="display:none",id="foo")
+                h3(id="dl",style="display:none;") 
+                    a(id="download",href="#") Download
 
 .container
     center
@@ -38,7 +40,13 @@
         
 script(type="text/javascript").
     var files = [];
+    var filename = {};
     var metadata = {};
+    
+    $('#download').click(function(){
+        console.log('in the downloader function');
+        $('<form action="'+ "/ddexdownload" +'" method="'+ ('post') +'">'+'<input type="hidden" name="file" value="'+filename.name+'"'+'/></form>').appendTo('body').submit().remove();
+    })
     $('#upload').click(function(){
         var formData = new FormData($('form#files')[0]);
         console.log(formData)
@@ -82,6 +90,9 @@ script(type="text/javascript").
             data: {meta:metadata,files:files},
             success: function(data){
                 console.log(data);
+                filename.name = data;
+                $('#dl').show();
+                $('#download').attr('download',data)
             }
         })
     })
