@@ -113,8 +113,8 @@ exports.soundcloud = function(metadata,files,cb){
                         break;
                     }
                 }
-                var date2 = parseFloat(date[2])+"-"+parseFloat(date[0])+"-"+parseFloat(date[1]);
-                silo.push({resourceType:data['ResourceType'], isrc:data['ISRC'], proprietaryId:propper, resourceReference:data['ResourceReference'], referenceTitle:data['Song Title'].replace('&',' and '), duration:duration2, fullName:data['Artist'].replace('&',' and '), labelName:data['Label'], plineYear:data['P Line Year'], plineText:data['P Line'], genreText:data['Genre'].replace(/[ ]/g,'').replace('&','/'), subGenre:data['SubGenre'], parentalWarningType:data['Parental Warning?'], technicalResourceDetailsReference:data['TechnicalResourceDetailsReference'], fileName:filename,nameFile:namefile,filePath:"resources/", hashSum:data['HashSum'], icpn:parseFloat(data['UPC']), albumTitle:data['Album'].replace('&',' and '), clineYear:data['C Line Year'], clineText:data['C Line'], releaseReference:data['ReleaseReference'], releaseDate:data['Release Date'],territory:data['Territory']})
+                var date2 = "20"+parseFloat(date[2])+"-0"+parseFloat(date[0])+"-"+parseFloat(date[1]);
+                silo.push({resourceType:data['Resource Type'], isrc:data['ISRC'], proprietaryId:propper, resourceReference:data['ResourceReference'], referenceTitle:data['Song Title'].replace('&',' and '), duration:data['Song Length'], fullName:data['Artist'].replace('&',' and '), labelName:data['Label'], plineYear:data['P Line Year'], plineText:data['P Line'], genreText:data['Genre'].replace(/[ ]/g,'').replace('&','/'), subGenre:data['SubGenre'], parentalWarningType:data['Parental Warning?'], technicalResourceDetailsReference:data['TechnicalResourceDetailsReference'], fileName:filename,nameFile:namefile,filePath:"resources/", hashSum:data['HashSum'], icpn:parseFloat(data['UPC']), albumTitle:data['Album'].replace('&',' and '), clineYear:data['C Line Year'], clineText:data['C Line'], releaseReference:data['ReleaseReference'], releaseDate:data['Release Date'],territory:data['Territory']})
         }
         })
 
@@ -548,14 +548,14 @@ exports.soundcloud = function(metadata,files,cb){
 
     function soundRecording(callback){
         console.log('in the sound recording');
-        console.log(silo);
+        //console.log(silo);
         var mar = false;
         var md5gen;
         var crypto = require('crypto');
         var md5holder = crypto.createHash('md5');
         async.mapSeries(silo, function(element,cb2){
         //silo.map(function(element){
-            //console.log(element);
+            console.log(element);
 
             if(element.resourceType == "Sound Recording"){
                 console.log(element.fileName)
