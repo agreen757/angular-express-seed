@@ -9,7 +9,7 @@ controllers.controller('ddex', ['$scope','$http', function($scope,$http){
         formData.append('file', file);
 
         $http({
-            method: 'POST',
+            method: 'post',
             url: '/fileUpload',
             data: formData,
             headers: { 'Content-Type': undefined },
@@ -102,9 +102,9 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
     
     //THIS SHOULD ALWAYS RETRIEVE THE PAST THREE MONTHS
     
-    var a = month[d.getMonth()-1]
-    var b = month[d.getMonth()-2]
-    var c = month[d.getMonth()-3]
+    var a = month[d.getMonth()-2]
+    var b = month[d.getMonth()-3]
+    var c = month[d.getMonth()-4]
     
     $scope.currentMonth = a
     
