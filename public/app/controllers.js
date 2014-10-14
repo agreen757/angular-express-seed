@@ -231,6 +231,15 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
     //$scope.name = 'bob';
 }]);
 
+//******************************************************************************************
+//*********************************MAPS CONTROLLER******************************************
+//******************************************************************************************
+
+controllers.controller('map', ['$scope','$http', function($scope, $http){
+    console.log('in the map control')
+}])
+
+
 controllers.controller('Signup', ['$scope','$http', function($scope, $http) {
     console.log('in the proper')
     $scope.register = function(user){

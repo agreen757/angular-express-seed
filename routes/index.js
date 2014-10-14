@@ -12,6 +12,10 @@ exports.index = function(req, res){
     res.render('index', { status: 'Log in' });
 };
 
+exports.index = function(req, res){
+    res.render('map', { status: 'Log in' });
+};
+
 exports.ddex = function(req,res){
     
     //****YOU ARE GOING TO HAVE TO CHANGE THIS SECTION TO BE AN EMIT FROM SOCKET.IO 

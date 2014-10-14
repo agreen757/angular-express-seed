@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ern:NewReleaseMessage MessageSchemaVersionId="ern/34" LanguageAndScriptCode="en" xs:schemaLocation="http://ddex.net/xml/ern/34 http://ddex.net/xml/ern/34/release-notification.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xmlns:ern="http://ddex.net/xml/ern/34">
+<MessageHeader>
+<MessageThreadId>2014-10-13IND</MessageThreadId><MessageId>0bd0ce10-5320-11e4-9ef5-47ba24887128</MessageId>
+<MessageSender>
+<PartyId>PADPIDA2014040303H</PartyId>
+<PartyName>
+<FullName>INDMUSIC</FullName>
+</PartyName>
+</MessageSender>
+<MessageRecipient>
+<PartyId>PADPIDA20121010037</PartyId>
+<PartyName>
+<FullName>SoundCloud</FullName>
+</PartyName>
+</MessageRecipient>
+<MessageCreatedDateTime>2014-10-13</MessageCreatedDateTime>
+<MessageControlType>LiveMessage</MessageControlType>
+</MessageHeader>
+<UpdateIndicator>OriginalMessage</UpdateIndicator><ResourceList>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407890</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A1</ResourceReference>
+<ReferenceTitle>
+<TitleText>Go Off</TitleText></ReferenceTitle>
+<Duration>PT0H03M10S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Go Off</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T1</TechnicalResourceDetailsReference>
+<File>
+<FileName>01GoOffftLucius.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>e81802ce39b008db9b6582c217d5e366</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407891</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A2</ResourceReference>
+<ReferenceTitle>
+<TitleText>Motivation</TitleText></ReferenceTitle>
+<Duration>PT0H04M37S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Motivation</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T2</TechnicalResourceDetailsReference>
+<File>
+<FileName>02MotivationftSocialClub.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>20aad83cbd3e30b65f61bd4e140a15ce</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407892</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A3</ResourceReference>
+<ReferenceTitle>
+<TitleText>Trippen</TitleText></ReferenceTitle>
+<Duration>PT0H03M39S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Trippen</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T3</TechnicalResourceDetailsReference>
+<File>
+<FileName>03Trippen.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>70ea2fbee9cab14798e9ac2472ca315f</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407898</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A4</ResourceReference>
+<ReferenceTitle>
+<TitleText>Point of View</TitleText></ReferenceTitle>
+<Duration>PT0H04M11S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Point of View</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T4</TechnicalResourceDetailsReference>
+<File>
+<FileName>04PointofViewftTragicHeroAdia.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>bebca4dc418bb2517475cb339ebcb10e</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407899</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A5</ResourceReference>
+<ReferenceTitle>
+<TitleText>Common Sense</TitleText></ReferenceTitle>
+<Duration>PT0H03M57S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Common Sense</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T5</TechnicalResourceDetailsReference>
+<File>
+<FileName>05CommonSenseftMauNuu.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>adcd5a34e6caf8961487a54b14712f65</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407900</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A6</ResourceReference>
+<ReferenceTitle>
+<TitleText>Put Me On</TitleText></ReferenceTitle>
+<Duration>PT0H05M05S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Put Me On</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T6</TechnicalResourceDetailsReference>
+<File>
+<FileName>06PutMeOnftReconcileDerekMinor.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>57e2845071091debb64b251c6f4bad4a</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407901</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A7</ResourceReference>
+<ReferenceTitle>
+<TitleText>Dreams</TitleText></ReferenceTitle>
+<Duration>PT0H03M46S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Dreams</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T7</TechnicalResourceDetailsReference>
+<File>
+<FileName>07DreamsftTonyTillmanJC.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>05a9f048323c72fcdbf8d7c894f70a18</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407904</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A8</ResourceReference>
+<ReferenceTitle>
+<TitleText>Reach into the Night</TitleText></ReferenceTitle>
+<Duration>PT0H04M10S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Reach into the Night</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T8</TechnicalResourceDetailsReference>
+<File>
+<FileName>08ReachintotheNightftTJPompeoShonlock.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>2e0ab7d00430ffb78aa40ee3679ab08b</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>TCABZ1407907</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A9</ResourceReference>
+<ReferenceTitle>
+<TitleText>Motivation Extended</TitleText></ReferenceTitle>
+<Duration>PT0H06M13S</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Motivation Extended</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Reflection Music Group</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T9</TechnicalResourceDetailsReference>
+<File>
+<FileName>09MotivationExtendedVersionftSocialClub.wav</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>963f24709a4fe0f971a3b80a68013362</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<Image>
+<ImageType>FrontCoverImage</ImageType>
+<ImageId>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ImageId>
+<ResourceReference>A10</ResourceReference>
+<ImageDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<TechnicalImageDetails>
+<TechnicalResourceDetailsReference>T10</TechnicalResourceDetailsReference>
+<ImageCodecType>JPEG</ImageCodecType>
+<ImageHeight>2000</ImageHeight>
+<ImageWidth>2000</ImageWidth>
+<File>
+<FileName>LCV2FrontCover.jpg</FileName>
+<FilePath>LCV2FrontCover.jpg</FilePath>
+<HashSum>
+<HashSum>baf31d585e61afef92136021e2635cca</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalImageDetails>
+</ImageDetailsByTerritory>
+</Image>
+</ResourceList>
+<ReleaseList>
+<Release>
+<ReleaseId>
+<ICPN IsEan="false">829569839827</ICPN>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R0</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Go Off</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A1</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A2</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A3</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A4</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A7</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A8</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A9</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>Album</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Go Off</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407890</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R1</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Go Off</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A1</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Go Off</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407891</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R2</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Motivation</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A2</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Motivation</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407892</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R3</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Trippen</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A3</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Trippen</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407898</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R4</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Point of View</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A4</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Point of View</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407899</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R5</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Common Sense</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Common Sense</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407900</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R6</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Put Me On</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Put Me On</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407901</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R7</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Dreams</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A7</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Dreams</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407904</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R8</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Reach into the Night</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A8</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Reach into the Night</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>TCABZ1407907</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">REFLECTIONMUSICGROUP</ProprietaryId></ReleaseId>
+<ReleaseReference>R9</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Motivation Extended</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A9</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A10</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Reflection Music Group</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Motivation Extended</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Canon</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>HipHop/Rap</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-07</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Ooh La La Records</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Reflection Music Group</CLineText>
+</CLine>
+</Release>
+</ReleaseList>
+<DealList>
+<ReleaseDeal>
+<DealReleaseReference>R0</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R1</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R2</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R3</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R4</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R5</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R6</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R7</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R8</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R9</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-07</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-13</EffectiveDate>
+</ReleaseDeal>
+</DealList>
+</ern:NewReleaseMessage>

@@ -27,6 +27,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'partials/signup',
             controller: 'Signup'
         })
+        .when('/map', {
+            templateUrl: 'partials/map',
+            controller: 'map'
+        })
         .when('/login', {
             templateUrl: 'partials/login',
             controller: 'login'

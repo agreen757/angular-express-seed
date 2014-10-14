@@ -113,8 +113,8 @@ exports.soundcloud = function(metadata,files,cb){
                         break;
                     }
                 }
-                var date2 = "20"+parseFloat(date[2])+"-0"+parseFloat(date[0])+"-"+parseFloat(date[1]);
-                silo.push({resourceType:data['Resource Type'], isrc:data['ISRC'], proprietaryId:propper, resourceReference:data['ResourceReference'], referenceTitle:data['Song Title'].replace('&',' and '), duration:data['Song Length'], fullName:data['Artist'].replace('&',' and '), labelName:data['Label'], plineYear:data['P Line Year'], plineText:data['P Line'], genreText:data['Genre'].replace(/[ ]/g,'').replace('&','/'), subGenre:data['SubGenre'], parentalWarningType:data['Parental Warning?'], technicalResourceDetailsReference:data['TechnicalResourceDetailsReference'], fileName:filename,nameFile:namefile,filePath:"resources/", hashSum:data['HashSum'], icpn:parseFloat(data['UPC']), albumTitle:data['Album'].replace('&',' and '), clineYear:data['C Line Year'], clineText:data['C Line'], releaseReference:data['ReleaseReference'], releaseDate:data['Release Date'],territory:data['Territory']})
+                var date2 = "20"+parseFloat(date[2])+"-"+parseFloat(date[0])+"-0"+parseFloat(date[1]);
+                silo.push({resourceType:data['Resource Type'], isrc:data['ISRC'], proprietaryId:propper, resourceReference:data['ResourceReference'], referenceTitle:data['Song Title'].replace('&',' and '), duration:data['Song Length'], fullName:data['Artist'].replace('&',' and '), labelName:data['Label'], plineYear:data['P Line Year'], plineText:data['P Line'], genreText:data['Genre'].replace(/[ ]/g,'').replace('&','/'), subGenre:data['SubGenre'], parentalWarningType:data['Parental Warning?'], technicalResourceDetailsReference:data['TechnicalResourceDetailsReference'], fileName:filename,nameFile:namefile,filePath:"resources/", hashSum:data['HashSum'], icpn:parseFloat(data['UPC']), albumTitle:data['Album'].replace('&',' and '), clineYear:data['C Line Year'], clineText:data['C Line'], releaseReference:data['ReleaseReference'], releaseDate:date2,territory:data['Territory']})
         }
         })
 
@@ -223,7 +223,7 @@ exports.soundcloud = function(metadata,files,cb){
             }
         ])
         function topper(walim){
-                if(silo[0].resourceType == "Sound Recording"){
+                if(silo[0].resourceType == "SoundRecording"){
                     mainCounter++;
                     var plusMain = mainCounter + 1;
                     var plusCount = counter + 1;
@@ -297,7 +297,7 @@ exports.soundcloud = function(metadata,files,cb){
         function meat(walim){
             counter = 0;
             silo.map(function(element){
-            if(element.resourceType == "Sound Recording"){
+            if(element.resourceType == "SoundRecording"){
                 mainCounter++;
                 var plusMain = mainCounter + 1;
                 var plusCount = counter + 1;
@@ -557,7 +557,7 @@ exports.soundcloud = function(metadata,files,cb){
         //silo.map(function(element){
             console.log(element);
 
-            if(element.resourceType == "Sound Recording"){
+            if(element.resourceType == "SoundRecording"){
                 console.log(element.fileName)
                 var file = fs.readFileSync(element.fileName);
                 console.log(element);
