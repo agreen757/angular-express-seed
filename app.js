@@ -58,7 +58,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/callback"
+    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -228,6 +228,7 @@ app.put('/demographInfo',function(req,res){
     })
 })
 
+//*************************************************************************
 //*************************************************************************
 
 app.put('/register', function(req,res){
