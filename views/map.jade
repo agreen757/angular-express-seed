@@ -72,10 +72,141 @@ html(ng-app="myapp")
 
             chart.draw(data, options);*/
           }
+              function getStates(id){
+                console.log(id)
+                /*$.ajax({
+                    type: "PUT",
+                    url: '/demographInfo',
+                    data: {id:id},
+                    success: function(err){
+                        $('#regions_div').empty()
+                        $('#header').empty()
+                        var headers = [];
+                        var rowdata = [];
+                        var regiondata
+                        for(i in err.columnHeaders){
+                            headers.push(err.columnHeaders[i].name)
+                        }
+                        for(i in err.rows){
+                            rowdata.push([err.rows[i][0],err.rows[i][1]])
+                        }
+                        console.log(rowdata)
+
+                        var regionDataArray = [headers]
+
+                        for(i in err.rows){
+                            regionDataArray.push(err.rows[i])
+                        }
+
+                        var data = google.visualization.arrayToDataTable(regionDataArray);
+
+                        var options = {
+                            region:'US',
+                            resolution:"provinces"
+                        };
+
+                        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                        chart.draw(data, options);
+                    }
+                })*/
+              }
     script(src="https://maps.googleapis.com/maps/api/js?libraries=visualization")
     
 body
     div
         center
-            h1 Current USA Views for <br><em>JodyHighRoller</em>
+            h1#header Current USA Views for <br><em>JodyHighRoller</em>
+    div
+        center
+            hr
+            h2 Channel ID
+            input(id="chanid",type="text")
+            button#sub Submit
     #regions_div
+    
+    
+script.
+     $('#sub').click(function(){
+            console.log($('#chanid').val())
+            var id = $('#chanid').val();
+            $.ajax({
+                    type: "PUT",
+                    url: '/demographInfo',
+                    data: {id:id},
+                    success: function(err){
+                        $('#regions_div').empty()
+                        $('#header').empty()
+                        var headers = [];
+                        var rowdata = [];
+                        var regiondata
+                        for(i in err.columnHeaders){
+                            headers.push(err.columnHeaders[i].name)
+                        }
+                        for(i in err.rows){
+                            rowdata.push([err.rows[i][0],err.rows[i][1]])
+                        }
+                        console.log(rowdata)
+
+                        var regionDataArray = [headers]
+
+                        for(i in err.rows){
+                            regionDataArray.push(err.rows[i])
+                        }
+
+                        var data = google.visualization.arrayToDataTable(regionDataArray);
+
+                        var options = {
+                            region:'US',
+                            resolution:"provinces"
+                        };
+
+                        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                        chart.draw(data, options);
+                    }
+                })
+          })
+          
+        $('#out').click(function(){
+            $('#out').click(function(){
+            console.log($('#chanid').val())
+            var id = $('#chanid').val();
+            $.ajax({
+                    type: "PUT",
+                    url: '/demographInfo',
+                    data: {id:id,world:true},
+                    success: function(err){
+                        $('#regions_div').empty()
+                        $('#header').empty()
+                        var headers = [];
+                        var rowdata = [];
+                        var regiondata
+                        for(i in err.columnHeaders){
+                            headers.push(err.columnHeaders[i].name)
+                        }
+                        for(i in err.rows){
+                            rowdata.push([err.rows[i][0],err.rows[i][1]])
+                        }
+                        console.log(rowdata)
+
+                        var regionDataArray = [headers]
+
+                        for(i in err.rows){
+                            regionDataArray.push(err.rows[i])
+                        }
+
+                        var data = google.visualization.arrayToDataTable(regionDataArray);
+
+                        var options = {
+                            region:'US',
+                            resolution:"provinces"
+                        };
+
+                        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                        chart.draw(data, options);
+                    }
+                })
+          })
+        })
