@@ -12,7 +12,7 @@ exports.index = function(req, res){
     res.render('index', { status: 'Log in' });
 };
 
-exports.index = function(req, res){
+exports.map = function(req, res){
     res.render('map', { status: 'Log in' });
 };
 
