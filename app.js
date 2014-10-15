@@ -58,7 +58,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -219,7 +219,7 @@ app.get('/map',ensureAuthenticated,ensureApproved,function(req,res){
 
 app.put('/demographInfo',function(req,res){
     console.log(req.body);
-    if(req.body.id){
+    if(req.body.usa){
         console.log(req.body.id);
         request.get('https://www.googleapis.com/youtube/analytics/v1/reports?ids=contentOwner%3D%3DkrCThOPEJqqsS2LErhc1JQ&start-date=2014-05-01&end-date=2014-09-30&metrics=views&dimensions=province&filters=channel%3D%3D'+req.body.id+'%3Bcountry%3D%3DUS&access_token='+req._passport.session.user[0].token, function(err,response,body){
         console.log(body);
@@ -229,6 +229,11 @@ app.put('/demographInfo',function(req,res){
     }
     else if(req.body.world){
         //******************************************FINISH THIS REQUEST FOR GLOBAL VIEWS
+        request.get('https://www.googleapis.com/youtube/analytics/v1/reports?ids=contentOwner%3D%3DkrCThOPEJqqsS2LErhc1JQ&start-date=2014-05-01&end-date=2014-06-30&metrics=views%2CestimatedMinutesWatched%2CaverageViewDuration%2CaverageViewPercentage%2Cearnings%2CgrossRevenue&dimensions=country&filters=channel%3D%3D'+req.body.id+'&sort=-estimatedMinutesWatched&access_token='+req._passport.session.user[0].token, function(err,response,body){
+            console.log(body);
+            var parsed = JSON.parse(body);
+            res.send(parsed)
+        })
     }
     else{
     //res.send('something')

@@ -122,7 +122,8 @@ body
             hr
             h2 Channel ID
             input(id="chanid",type="text")
-            button#sub Submit
+            button#sub USA
+            button#out Global
     #regions_div
     
     
@@ -133,7 +134,7 @@ script.
             $.ajax({
                     type: "PUT",
                     url: '/demographInfo',
-                    data: {id:id},
+                    data: {id:id,usa:true},
                     success: function(err){
                         $('#regions_div').empty()
                         $('#header').empty()
@@ -182,30 +183,32 @@ script.
                         var headers = [];
                         var rowdata = [];
                         var regiondata
-                        for(i in err.columnHeaders){
+                        //console.log(err)
+                        for(i=0;i<=1;i++){
                             headers.push(err.columnHeaders[i].name)
                         }
                         for(i in err.rows){
-                            rowdata.push([err.rows[i][0],err.rows[i][1]])
+                            rowdata.push([err.rows[i][0],err.rows[i][1],err.rows[i][2],err.rows[i][3],err.rows[i][4],err.rows[i][5],err.rows[i][6]])
                         }
-                        console.log(rowdata)
+                        //console.log(rowdata)
 
                         var regionDataArray = [headers]
+                        console.log(headers)
 
                         for(i in err.rows){
-                            regionDataArray.push(err.rows[i])
+                            regionDataArray.push([err.rows[i][0],err.rows[i][1]])
                         }
 
                         var data = google.visualization.arrayToDataTable(regionDataArray);
 
-                        var options = {
+                        /*var options = {
                             region:'US',
                             resolution:"provinces"
-                        };
+                        };*/
 
                         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
-                        chart.draw(data, options);
+                        chart.draw(data);
                     }
                 })
           })
