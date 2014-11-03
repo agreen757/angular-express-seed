@@ -171,7 +171,7 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
         $scope.difference = data.gdata[0].partEarnings.toFixed(2) - data.gdata[1].partEarnings.toFixed(2);
         $scope.alert = 'Your difference from last month';
         $scope.dashstyle = "true";
-        $scope.loadingstyle = "none";
+        $("#loadingstyle").fadeOut('slow')
         $scope.topVideoName = data.topdata[0].videoTitle;
         $scope.topVideoRev = data.topdata[0].tEarnings.toFixed(2);
         $scope.topUgcName = data.ugcdata[0].videoTitle;
