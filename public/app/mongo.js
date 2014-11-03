@@ -264,6 +264,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 console.log('exec error: ' + error);
             }
         })
+        
     }
     
     exports.auth = function(email,cb){
@@ -435,6 +436,14 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 })
             //}
         //])
+    }
+    
+    exports.getvids = function(month,cb){
+        db.collection('Reports-'+month).find({customId:"9LILG"}).toArray(function(err,docs){
+            if(err){console.log(err)}
+            
+            return cb(null,docs)
+        })
     }
     
     exports.signup = function(email,name,cb){

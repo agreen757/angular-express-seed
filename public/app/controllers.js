@@ -118,7 +118,7 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
         
         var chart1 = {};
         chart1.type = "BarChart";
-        chart1.cssStyle = "height:20.5em; ;float:left;width:50%;";
+        chart1.cssStyle = "height:20.5em; ;float:left;width:100%;";
         chart1.data = {"cols": [
             {id: "month", label: "Month", type: "string"},
             {id: "ugc", label: "Partner", type: "number"},
@@ -226,6 +226,22 @@ controllers.controller('dashboard', ['$scope','$http', function($scope,$http) {
                 console.log(data);
 
             })*/
+    }
+    
+    $http.put('/getvids',{month:"August"}).success(function(data,status,headers){
+        console.log(data);
+        $scope.videoList = data;
+    })
+    
+    //******************************************SHOW/HIDE THE VIDEO MANAGER
+    
+    $scope.vidman = function(){
+        $("#download").fadeOut('slow')
+        $("#vidman").fadeIn('slow');
+    }
+    $scope.downloader = function(){
+        $("#vidman").fadeOut('slow')
+        $("#download").fadeIn('slow');
     }
     
     //$scope.name = 'bob';

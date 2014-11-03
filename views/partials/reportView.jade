@@ -4,109 +4,166 @@ div(style="display:{{loadingstyle}};")
     center
         h3 Loading...
 
-div.row(style="display:{{display}}")
-    div.col-md-6
-        center
-            h1 UGC
-            table.table
-                thead    
-                    tr
-                        th UGC Views
-                        th UGC Ad-Enabled Views
-                        th UGC Earnings
-                tbody        
-                    tr
-                        td {{ugcViews}}
-                        td {{ugcAdViews}}
-                        td {{ugcEarnings}}
+div#owl-example.owl-carousel.owl-theme(style="display:{{display}}")
+    div.item
+        .container
+            div.row(style="display:{{display}}")
+                div.col-md-6
+                    center
+                        h1 UGC
+                        table.table
+                            thead    
+                                tr
+                                    th UGC Views
+                                    th UGC Ad-Enabled Views
+                                    th UGC Earnings
+                            tbody        
+                                tr
+                                    td {{ugcViews}}
+                                    td {{ugcAdViews}}
+                                    td {{ugcEarnings}}
 
-    div.col-md-6
-        center
-            h1 Partner Provided
-            table.table
-                thead
-                    tr
-                        th Partner Views
-                        th Partner Ad-Enabled Views
-                        th Partner Earnings
-                tbody        
-                    tr
-                        td {{partViews}}
-                        td {{partAdViews}}
-                        td {{partEarnings}}
-
-
-
-div(google-chart chart="chart",style="{{chart.cssStyle}}")
-
-div.row(style="display:{{dashstyle}}")
-    div.col-md-6(id="hovertest", style="border:solid #eee 10px;padding:10px;height:22.914em;")
-        center
-            h2 {{currentMonth}} at a glance
-            hr
-        h3 On Channel Earnings: {{partRev}}
-        h3 UGC Earnings: {{ugcRev}}
-        hr
-        center
-            p {{alert}}
-            h3(style="color:green;font-style:italic;") +{{difference}}
+                div.col-md-6
+                    center
+                        h1 Partner Provided
+                        table.table
+                            thead
+                                tr
+                                    th Partner Views
+                                    th Partner Ad-Enabled Views
+                                    th Partner Earnings
+                            tbody        
+                                tr
+                                    td {{partViews}}
+                                    td {{partAdViews}}
+                                    td {{partEarnings}}
 
 
-div.row(style="display:{{dashstyle}}")
-    div.col-md-6(id="hovertest", style="border:solid #eee 10px;padding:20px;height:22.914em;")
-        center
-            h2
-                a(style="display:{{downloadstyle}};",href="#",ng-click="getDownload(request)") {{download}}
-        form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:100%;")
-            center
-                h2 Download your monthly report
-                p Select your month
-            hr
-            select.form-control(name="month", ng-model="request.month")
-                option February
-                option March
-                option April
-                option May
-                option June
-                option July
-                option August
-            br
-            br
-            button.btn.btn-primary(ng-click="query(request,#{id})") Download
-            p(style="display:{{genstyle}}") Generating.....
-            
-    div.col-md-6(style="background-color:#d64342;padding:20px;height:22.914em;")
-        div#owl-example.owl-carousel.owl-theme
-            div.item
-                center
-                    performance
+
+            div.row(style="display:{{dashstyle}}")
+                div.col-md-6(style="max-height:22.914em")
+                    div#owl-example3.owl-carousel.owl-theme
+                        div.item
+                            div(google-chart chart="chart",style="{{chart.cssStyle}}")
+                        div.item(style="max-height:20em;")
+                            #regions_div
+                div.col-md-6(id="hovertest", style="border:solid #eee 10px;padding:10px;height:22.914em;")
+                    center
+                        h2 {{currentMonth}} at a glance
+                        hr
+                    h3 On Channel Earnings: {{partRev}}
+                    h3 UGC Earnings: {{ugcRev}}
                     hr
-                    h2 
-                        em {{topVideoName}}
-                    h3  
-                        em(style="color:white") ${{topVideoRev}}
-            div.item
-                center
-                    h2 Your top <em style="color:white;">UGC</em> video
-                    hr
-                    h2
-                        em {{topUgcName}}
-                    h3
-                        em(style="color:white") ${{topUgcRev}}
-            div.item
-                center
-                    h2 Your top <em style="color:white;">On Channel</em> video
-                    hr
-                    h2
-                        em {{topPartName}}
-                    h3
-                        em(style="color:white") ${{topPartRev}}
+                    center
+                        p {{alert}}
+                        h3(style="color:green;font-style:italic;") +{{difference}}
+
+
+            div.row(style="display:{{dashstyle}}")
+                div.col-md-6(id="hovertest", style="border:solid #eee 10px;padding:20px;height:22.914em;")
+                    div#download
+                        button.btn.btn-default(ng-click="vidman()") Video Manager
+                        center
+                            h2
+                                a(style="display:{{downloadstyle}};",href="#",ng-click="getDownload(request)") {{download}}
+                        form(name="inputInfo", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:100%;")
+                            center
+                                h2 Download your monthly report
+                                p Select your month
+                            hr
+                            select.form-control(name="month", ng-model="request.month")
+                                option February
+                                option March
+                                option April
+                                option May
+                                option June
+                                option July
+                                option August
+                            br
+                            br
+                            button.btn.btn-primary(ng-click="query(request,#{id})") Download
+                            p(style="display:{{genstyle}}") Generating.....
+                    div#vidman(style="display:none;overflow-x:scroll;height:100%")
+                        button.btn.btn-default(ng-click="downloader()") Downloader
+                        center
+                            h2 Video Manager
+                            hr
+                            input(ng-model="searchText")
+                        table.table
+                            thead
+                                tr
+                                    th Video Title
+                                    th Views
+                                    th Total Earning
+                            tbody
+                                tr(ng-repeat="video in videoList | filter:searchText")
+                                    td {{video.videoTitle}}
+                                    td {{video.tViews}}
+                                    td {{video.tEarnings}}
+                                
+
+                div.col-md-6(style="background-color:#d64342;padding:20px;height:22.914em;")
+                    div#owl-example2.owl-carousel.owl-theme
+                        div.item
+                            center
+                                performance
+                                hr
+                                h2 
+                                    em {{topVideoName}}
+                                h3  
+                                    em(style="color:white") ${{topVideoRev}}
+                        div.item
+                            center
+                                h2 Your top <em style="color:white;">UGC</em> video
+                                hr
+                                h2
+                                    em {{topUgcName}}
+                                h3
+                                    em(style="color:white") ${{topUgcRev}}
+                        div.item
+                            center
+                                h2 Your top <em style="color:white;">On Channel</em> video
+                                hr
+                                h2
+                                    em {{topPartName}}
+                                h3
+                                    em(style="color:white") ${{topPartRev}}
+
+    //div.item(style="display:{{dashstyle}}")
+        container
+            .row
+                .col-md-6(style="padding:20px")
+                    center
+                        h2 US Views by State
+                        hr
+                        #regions_div
         
 script(type="text/javascript").
         $(document).ready(function() {
+            setTimeout(function(){
+                $("#regions_div").css("bottom","20px")
+            }, 5000)
  
             $("#owl-example").owlCarousel({
+                navigation : false,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem: true
+          });
+          $("#owl-example2").owlCarousel({
                 navigation : true,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem: true
+          });
+          $("#owl-example3").owlCarousel({
+                navigation : false,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem: true
+          });
+          $("#owl-example4").owlCarousel({
+                navigation : false,
                 slideSpeed : 300,
                 paginationSpeed : 400,
                 singleItem: true

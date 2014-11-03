@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ern:NewReleaseMessage MessageSchemaVersionId="ern/34" LanguageAndScriptCode="en" xs:schemaLocation="http://ddex.net/xml/ern/34 http://ddex.net/xml/ern/34/release-notification.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xmlns:ern="http://ddex.net/xml/ern/34">
 <MessageHeader>
-<MessageThreadId>2014-10-03IND</MessageThreadId><MessageId>532a8a80-4b19-11e4-8c79-f7432c0f2f95</MessageId>
+<MessageThreadId>2014-10-15IND</MessageThreadId><MessageId>401d8050-54b0-11e4-bc4d-9db182324ec0</MessageId>
 <MessageSender>
 <PartyId>PADPIDA2014040303H</PartyId>
 <PartyName>
@@ -14,33 +14,33 @@
 <FullName>SoundCloud</FullName>
 </PartyName>
 </MessageRecipient>
-<MessageCreatedDateTime>2014-10-03</MessageCreatedDateTime>
+<MessageCreatedDateTime>2014-10-15</MessageCreatedDateTime>
 <MessageControlType>LiveMessage</MessageControlType>
 </MessageHeader>
 <UpdateIndicator>OriginalMessage</UpdateIndicator><ResourceList>
 <SoundRecording>
 <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
 <SoundRecordingId>
-<ISRC>US8YE1400062</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId>
+<ISRC>QMPKX1486526</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId>
 </SoundRecordingId>
 <ResourceReference>A1</ResourceReference>
 <ReferenceTitle>
-<TitleText>Marking</TitleText></ReferenceTitle>
-<Duration>PT0H03M18S</Duration>
+<TitleText>Saturday Morning 1030AM</TitleText></ReferenceTitle>
+<Duration>00-03-07</Duration>
 <SoundRecordingDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
 <Title TitleType="DisplayTitle">
-<TitleText>Marking</TitleText>
+<TitleText>Saturday Morning 1030AM</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName></PartyName>
+<FullName>Near Peak</FullName></PartyName>
 <ArtistRole>MainArtist</ArtistRole></DisplayArtist>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <Genre>
 <GenreText>Rock</GenreText>
@@ -49,10 +49,10 @@
 <TechnicalSoundRecordingDetails>
 <TechnicalResourceDetailsReference>T1</TechnicalResourceDetailsReference>
 <File>
-<FileName>01Marking.mp3</FileName>
+<FileName>01SaturdayMorning1030AM.mp3</FileName>
 <FilePath>resources/</FilePath>
 <HashSum>
-<HashSum>bf1fe5b02f1b4c4875ff5cbb10cacd65</HashSum>
+<HashSum>7fba05309bc30fdbb0deaebee729078f</HashSum>
 <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
 </HashSum>
 </File>
@@ -62,26 +62,26 @@
 <SoundRecording>
 <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
 <SoundRecordingId>
-<ISRC>US8YE1400063</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId>
+<ISRC>QMPKX1486527</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId>
 </SoundRecordingId>
 <ResourceReference>A2</ResourceReference>
 <ReferenceTitle>
-<TitleText>They Count</TitleText></ReferenceTitle>
-<Duration>PT0H04M50S</Duration>
+<TitleText>Tortoise</TitleText></ReferenceTitle>
+<Duration>00-04-25</Duration>
 <SoundRecordingDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
 <Title TitleType="DisplayTitle">
-<TitleText>They Count</TitleText>
+<TitleText>Tortoise</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName></PartyName>
+<FullName>Near Peak</FullName></PartyName>
 <ArtistRole>MainArtist</ArtistRole></DisplayArtist>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <Genre>
 <GenreText>Rock</GenreText>
@@ -90,10 +90,10 @@
 <TechnicalSoundRecordingDetails>
 <TechnicalResourceDetailsReference>T2</TechnicalResourceDetailsReference>
 <File>
-<FileName>02TheyCount.mp3</FileName>
+<FileName>02Tortoise.mp3</FileName>
 <FilePath>resources/</FilePath>
 <HashSum>
-<HashSum>fc9851d96419b0d7570804f85b0aa221</HashSum>
+<HashSum>725f93421c79294eb8b923e065fa1d90</HashSum>
 <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
 </HashSum>
 </File>
@@ -103,26 +103,26 @@
 <SoundRecording>
 <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
 <SoundRecordingId>
-<ISRC>US8YE1400064</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId>
+<ISRC>QMPKX1486528</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId>
 </SoundRecordingId>
 <ResourceReference>A3</ResourceReference>
 <ReferenceTitle>
-<TitleText>More</TitleText></ReferenceTitle>
-<Duration>PT0H03M18S</Duration>
+<TitleText>Had a Voice</TitleText></ReferenceTitle>
+<Duration>00-02-24</Duration>
 <SoundRecordingDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
 <Title TitleType="DisplayTitle">
-<TitleText>More</TitleText>
+<TitleText>Had a Voice</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName></PartyName>
+<FullName>Near Peak</FullName></PartyName>
 <ArtistRole>MainArtist</ArtistRole></DisplayArtist>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <Genre>
 <GenreText>Rock</GenreText>
@@ -131,10 +131,10 @@
 <TechnicalSoundRecordingDetails>
 <TechnicalResourceDetailsReference>T3</TechnicalResourceDetailsReference>
 <File>
-<FileName>03MoreAndMore.mp3</FileName>
+<FileName>03HadaVoice.mp3</FileName>
 <FilePath>resources/</FilePath>
 <HashSum>
-<HashSum>9a458a3e44a72687cc8838e150f6f5e3</HashSum>
+<HashSum>b34d3cd0a432395ee28038c1d735bbbe</HashSum>
 <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
 </HashSum>
 </File>
@@ -144,26 +144,26 @@
 <SoundRecording>
 <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
 <SoundRecordingId>
-<ISRC>US8YE1400065</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId>
+<ISRC>QMPKX1486529</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId>
 </SoundRecordingId>
 <ResourceReference>A4</ResourceReference>
 <ReferenceTitle>
-<TitleText>Symmetry</TitleText></ReferenceTitle>
-<Duration>PT0H06M22S</Duration>
+<TitleText>Sanguine</TitleText></ReferenceTitle>
+<Duration>00-05-26</Duration>
 <SoundRecordingDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
 <Title TitleType="DisplayTitle">
-<TitleText>Symmetry</TitleText>
+<TitleText>Sanguine</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName></PartyName>
+<FullName>Near Peak</FullName></PartyName>
 <ArtistRole>MainArtist</ArtistRole></DisplayArtist>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <Genre>
 <GenreText>Rock</GenreText>
@@ -172,10 +172,51 @@
 <TechnicalSoundRecordingDetails>
 <TechnicalResourceDetailsReference>T4</TechnicalResourceDetailsReference>
 <File>
-<FileName>04Symmetry.mp3</FileName>
+<FileName>04Sanguine.mp3</FileName>
 <FilePath>resources/</FilePath>
 <HashSum>
-<HashSum>57749b7bb6395c8a218f1887156bde9c</HashSum>
+<HashSum>1c1cf288a2be3536639c1744443133f6</HashSum>
+<HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+</HashSum>
+</File>
+</TechnicalSoundRecordingDetails>
+</SoundRecordingDetailsByTerritory>
+</SoundRecording>
+<SoundRecording>
+<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+<SoundRecordingId>
+<ISRC>QMPKX1486530</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId>
+</SoundRecordingId>
+<ResourceReference>A5</ResourceReference>
+<ReferenceTitle>
+<TitleText>Borderline (Bonus Live Session)</TitleText></ReferenceTitle>
+<Duration>00-03-44</Duration>
+<SoundRecordingDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<Title TitleType="DisplayTitle">
+<TitleText>Borderline (Bonus Live Session)</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Near Peak</FullName></PartyName>
+<ArtistRole>MainArtist</ArtistRole></DisplayArtist>
+<LabelName>Near Peak Records</LabelName>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Near Peak</PLineText>
+</PLine>
+<Genre>
+<GenreText>Rock</GenreText>
+</Genre>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<TechnicalSoundRecordingDetails>
+<TechnicalResourceDetailsReference>T5</TechnicalResourceDetailsReference>
+<File>
+<FileName>05BorderlineBonusLiveSession.mp3</FileName>
+<FilePath>resources/</FilePath>
+<HashSum>
+<HashSum>2ad442e512698688ddffcec21ee417d6</HashSum>
 <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
 </HashSum>
 </File>
@@ -185,20 +226,20 @@
 <Image>
 <ImageType>FrontCoverImage</ImageType>
 <ImageId>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId></ImageId>
-<ResourceReference>A5</ResourceReference>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ImageId>
+<ResourceReference>A6</ResourceReference>
 <ImageDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
 <TechnicalImageDetails>
-<TechnicalResourceDetailsReference>T5</TechnicalResourceDetailsReference>
+<TechnicalResourceDetailsReference>T6</TechnicalResourceDetailsReference>
 <ImageCodecType>JPEG</ImageCodecType>
 <ImageHeight>2000</ImageHeight>
 <ImageWidth>2000</ImageWidth>
 <File>
-<FileName>Symmetry2000.jpg</FileName>
-<FilePath>Symmetry2000.jpg</FilePath>
+<FileName>SaturdayMorning.jpg</FileName>
+<FilePath>SaturdayMorning.jpg</FilePath>
 <HashSum>
-<HashSum>43a6ad24a8325b20fa6597c38b2b4016</HashSum>
+<HashSum>e6f8c74d0806daa19b76ef97be5e59a1</HashSum>
 <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
 </HashSum>
 </File>
@@ -209,11 +250,11 @@
 <ReleaseList>
 <Release>
 <ReleaseId>
-<ICPN IsEan="false">5060250360540</ICPN>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId></ReleaseId>
+<ICPN IsEan="false">872133981712</ICPN>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ReleaseId>
 <ReleaseReference>R0</ReleaseReference>
 <ReferenceTitle>
-<TitleText>Marking</TitleText>
+<TitleText>Saturday Morning 1030AM</TitleText>
 </ReferenceTitle>
 <ReleaseResourceReferenceList>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A1</ReleaseResourceReference>
@@ -221,17 +262,18 @@
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A3</ReleaseResourceReference>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A4</ReleaseResourceReference>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
 </ReleaseResourceReferenceList>
 <ReleaseType>Album</ReleaseType>
 <ReleaseDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <Title TitleType="DisplayTitle">
-<TitleText>Marking</TitleText>
+<TitleText>Saturday Morning 1030AM</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName>
+<FullName>Near Peak</FullName>
 </PartyName>
 <ArtistRole>MainArtist</ArtistRole>
 </DisplayArtist>
@@ -239,39 +281,39 @@
 <Genre>
 <GenreText>Rock</GenreText>
 </Genre>
-<OriginalReleaseDate>2014-02-25</OriginalReleaseDate>
+<OriginalReleaseDate>2014-10-01</OriginalReleaseDate>
 </ReleaseDetailsByTerritory>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <CLine>
 <Year>2014</Year>
-<CLineText>2014 Ooh La La Records</CLineText>
+<CLineText>2014 Near Peak</CLineText>
 </CLine>
 </Release>
 <Release>
 <ReleaseId>
-<ISRC>US8YE1400062</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId></ReleaseId>
+<ISRC>QMPKX1486526</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ReleaseId>
 <ReleaseReference>R1</ReleaseReference>
 <ReferenceTitle>
-<TitleText>Marking</TitleText>
+<TitleText>Saturday Morning 1030AM</TitleText>
 </ReferenceTitle>
 <ReleaseResourceReferenceList>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A1</ReleaseResourceReference>
-<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
 </ReleaseResourceReferenceList>
 <ReleaseType>TrackRelease</ReleaseType>
 <ReleaseDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <Title TitleType="DisplayTitle">
-<TitleText>Marking</TitleText>
+<TitleText>Saturday Morning 1030AM</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName>
+<FullName>Near Peak</FullName>
 </PartyName>
 <ArtistRole>MainArtist</ArtistRole>
 </DisplayArtist>
@@ -279,39 +321,39 @@
 <Genre>
 <GenreText>Rock</GenreText>
 </Genre>
-<OriginalReleaseDate>2014-02-25</OriginalReleaseDate>
+<OriginalReleaseDate>2014-10-01</OriginalReleaseDate>
 </ReleaseDetailsByTerritory>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <CLine>
 <Year>2014</Year>
-<CLineText>2014 Ooh La La Records</CLineText>
+<CLineText>2014 Near Peak</CLineText>
 </CLine>
 </Release>
 <Release>
 <ReleaseId>
-<ISRC>US8YE1400063</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId></ReleaseId>
+<ISRC>QMPKX1486527</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ReleaseId>
 <ReleaseReference>R2</ReleaseReference>
 <ReferenceTitle>
-<TitleText>They Count</TitleText>
+<TitleText>Tortoise</TitleText>
 </ReferenceTitle>
 <ReleaseResourceReferenceList>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A2</ReleaseResourceReference>
-<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
 </ReleaseResourceReferenceList>
 <ReleaseType>TrackRelease</ReleaseType>
 <ReleaseDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <Title TitleType="DisplayTitle">
-<TitleText>They Count</TitleText>
+<TitleText>Tortoise</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName>
+<FullName>Near Peak</FullName>
 </PartyName>
 <ArtistRole>MainArtist</ArtistRole>
 </DisplayArtist>
@@ -319,39 +361,39 @@
 <Genre>
 <GenreText>Rock</GenreText>
 </Genre>
-<OriginalReleaseDate>2014-02-25</OriginalReleaseDate>
+<OriginalReleaseDate>2014-10-01</OriginalReleaseDate>
 </ReleaseDetailsByTerritory>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <CLine>
 <Year>2014</Year>
-<CLineText>2014 Ooh La La Records</CLineText>
+<CLineText>2014 Near Peak</CLineText>
 </CLine>
 </Release>
 <Release>
 <ReleaseId>
-<ISRC>US8YE1400064</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId></ReleaseId>
+<ISRC>QMPKX1486528</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ReleaseId>
 <ReleaseReference>R3</ReleaseReference>
 <ReferenceTitle>
-<TitleText>More</TitleText>
+<TitleText>Had a Voice</TitleText>
 </ReferenceTitle>
 <ReleaseResourceReferenceList>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A3</ReleaseResourceReference>
-<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
 </ReleaseResourceReferenceList>
 <ReleaseType>TrackRelease</ReleaseType>
 <ReleaseDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <Title TitleType="DisplayTitle">
-<TitleText>More</TitleText>
+<TitleText>Had a Voice</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName>
+<FullName>Near Peak</FullName>
 </PartyName>
 <ArtistRole>MainArtist</ArtistRole>
 </DisplayArtist>
@@ -359,39 +401,39 @@
 <Genre>
 <GenreText>Rock</GenreText>
 </Genre>
-<OriginalReleaseDate>2014-02-25</OriginalReleaseDate>
+<OriginalReleaseDate>2014-10-01</OriginalReleaseDate>
 </ReleaseDetailsByTerritory>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <CLine>
 <Year>2014</Year>
-<CLineText>2014 Ooh La La Records</CLineText>
+<CLineText>2014 Near Peak</CLineText>
 </CLine>
 </Release>
 <Release>
 <ReleaseId>
-<ISRC>US8YE1400065</ISRC>
-<ProprietaryId Namespace="PADPIDA2014040303H">OOHLALARECORDINGS</ProprietaryId></ReleaseId>
+<ISRC>QMPKX1486529</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ReleaseId>
 <ReleaseReference>R4</ReleaseReference>
 <ReferenceTitle>
-<TitleText>Symmetry</TitleText>
+<TitleText>Sanguine</TitleText>
 </ReferenceTitle>
 <ReleaseResourceReferenceList>
 <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A4</ReleaseResourceReference>
-<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
 </ReleaseResourceReferenceList>
 <ReleaseType>TrackRelease</ReleaseType>
 <ReleaseDetailsByTerritory>
 <TerritoryCode>Worldwide</TerritoryCode>
-<LabelName>Ooh La La Records</LabelName>
+<LabelName>Near Peak Records</LabelName>
 <Title TitleType="DisplayTitle">
-<TitleText>Symmetry</TitleText>
+<TitleText>Sanguine</TitleText>
 </Title>
 <DisplayArtist>
 <PartyName>
-<FullName>Tropic of Pisces</FullName>
+<FullName>Near Peak</FullName>
 </PartyName>
 <ArtistRole>MainArtist</ArtistRole>
 </DisplayArtist>
@@ -399,15 +441,55 @@
 <Genre>
 <GenreText>Rock</GenreText>
 </Genre>
-<OriginalReleaseDate>2014-02-25</OriginalReleaseDate>
+<OriginalReleaseDate>2014-10-01</OriginalReleaseDate>
 </ReleaseDetailsByTerritory>
 <PLine>
 <Year>2014</Year>
-<PLineText>2014 Ooh La La Records</PLineText>
+<PLineText>2014 Near Peak</PLineText>
 </PLine>
 <CLine>
 <Year>2014</Year>
-<CLineText>2014 Ooh La La Records</CLineText>
+<CLineText>2014 Near Peak</CLineText>
+</CLine>
+</Release>
+<Release>
+<ReleaseId>
+<ISRC>QMPKX1486530</ISRC>
+<ProprietaryId Namespace="PADPIDA2014040303H">NEARPEAK</ProprietaryId></ReleaseId>
+<ReleaseReference>R5</ReleaseReference>
+<ReferenceTitle>
+<TitleText>Borderline (Bonus Live Session)</TitleText>
+</ReferenceTitle>
+<ReleaseResourceReferenceList>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A5</ReleaseResourceReference>
+<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A6</ReleaseResourceReference>
+</ReleaseResourceReferenceList>
+<ReleaseType>TrackRelease</ReleaseType>
+<ReleaseDetailsByTerritory>
+<TerritoryCode>Worldwide</TerritoryCode>
+<LabelName>Near Peak Records</LabelName>
+<Title TitleType="DisplayTitle">
+<TitleText>Borderline (Bonus Live Session)</TitleText>
+</Title>
+<DisplayArtist>
+<PartyName>
+<FullName>Near Peak</FullName>
+</PartyName>
+<ArtistRole>MainArtist</ArtistRole>
+</DisplayArtist>
+<ParentalWarningType>NotExplicit</ParentalWarningType>
+<Genre>
+<GenreText>Rock</GenreText>
+</Genre>
+<OriginalReleaseDate>2014-10-01</OriginalReleaseDate>
+</ReleaseDetailsByTerritory>
+<PLine>
+<Year>2014</Year>
+<PLineText>2014 Near Peak</PLineText>
+</PLine>
+<CLine>
+<Year>2014</Year>
+<CLineText>2014 Near Peak</CLineText>
 </CLine>
 </Release>
 </ReleaseList>
@@ -422,10 +504,10 @@
 </Usage>
 <TerritoryCode>Worldwide</TerritoryCode>
 <ValidityPeriod>
-<StartDate>2014-02-25</StartDate>
+<StartDate>2014-10-01</StartDate>
 </ValidityPeriod></DealTerms>
 </Deal>
-<EffectiveDate>2014-10-03</EffectiveDate>
+<EffectiveDate>2014-10-15</EffectiveDate>
 </ReleaseDeal>
 <ReleaseDeal>
 <DealReleaseReference>R1</DealReleaseReference>
@@ -437,10 +519,10 @@
 </Usage>
 <TerritoryCode>Worldwide</TerritoryCode>
 <ValidityPeriod>
-<StartDate>2014-02-25</StartDate>
+<StartDate>2014-10-01</StartDate>
 </ValidityPeriod></DealTerms>
 </Deal>
-<EffectiveDate>2014-10-03</EffectiveDate>
+<EffectiveDate>2014-10-15</EffectiveDate>
 </ReleaseDeal>
 <ReleaseDeal>
 <DealReleaseReference>R2</DealReleaseReference>
@@ -452,10 +534,10 @@
 </Usage>
 <TerritoryCode>Worldwide</TerritoryCode>
 <ValidityPeriod>
-<StartDate>2014-02-25</StartDate>
+<StartDate>2014-10-01</StartDate>
 </ValidityPeriod></DealTerms>
 </Deal>
-<EffectiveDate>2014-10-03</EffectiveDate>
+<EffectiveDate>2014-10-15</EffectiveDate>
 </ReleaseDeal>
 <ReleaseDeal>
 <DealReleaseReference>R3</DealReleaseReference>
@@ -467,10 +549,10 @@
 </Usage>
 <TerritoryCode>Worldwide</TerritoryCode>
 <ValidityPeriod>
-<StartDate>2014-02-25</StartDate>
+<StartDate>2014-10-01</StartDate>
 </ValidityPeriod></DealTerms>
 </Deal>
-<EffectiveDate>2014-10-03</EffectiveDate>
+<EffectiveDate>2014-10-15</EffectiveDate>
 </ReleaseDeal>
 <ReleaseDeal>
 <DealReleaseReference>R4</DealReleaseReference>
@@ -482,10 +564,25 @@
 </Usage>
 <TerritoryCode>Worldwide</TerritoryCode>
 <ValidityPeriod>
-<StartDate></StartDate>
+<StartDate>2014-10-01</StartDate>
 </ValidityPeriod></DealTerms>
 </Deal>
-<EffectiveDate>2014-10-03</EffectiveDate>
+<EffectiveDate>2014-10-15</EffectiveDate>
+</ReleaseDeal>
+<ReleaseDeal>
+<DealReleaseReference>R5</DealReleaseReference>
+<Deal>
+<DealTerms>
+<CommercialModelType>subscriptionmodel</CommercialModelType>
+<Usage>
+<UseType>OnDemandStream</UseType>
+</Usage>
+<TerritoryCode>Worldwide</TerritoryCode>
+<ValidityPeriod>
+<StartDate>2014-10-01</StartDate>
+</ValidityPeriod></DealTerms>
+</Deal>
+<EffectiveDate>2014-10-15</EffectiveDate>
 </ReleaseDeal>
 </DealList>
 </ern:NewReleaseMessage>

@@ -58,7 +58,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -110,6 +110,15 @@ app.put('/getMonths', function(req,res){
             res.send({gdata:gdata,topdata:topdata,ugcdata:ugcdata,partdata:partdata})
     })  
     },b+=2000)
+})
+
+app.put('/getvids', function(req,res){
+    var month = req.body.month
+    console.log('in getvids with '+month)
+    reports.getvids(month,function(err,data){
+        //console.log(data)
+        res.send(data);
+    })
 })
 
 app.put('/query', function(req,res){

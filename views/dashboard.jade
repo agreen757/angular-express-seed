@@ -15,6 +15,108 @@ html(ng-app="myapp")
     script(src="app/controllers.js",type="application/javascript")
     script(src="app/directives.js",type="application/javascript")
     script(src="http://bouil.github.io/angular-google-chart/ng-google-chart.js",type="application/javascript")
+    script(src="https://www.google.com/jsapi")
+    script.
+        google.load("visualization", "1", {packages:["geochart"]});
+          google.setOnLoadCallback(drawRegionsMap);
+
+          function drawRegionsMap() {
+          
+            $.ajax({
+                type: "PUT",
+                url: '/demographInfo',
+                data: {gimme:"something"},
+                success: function(err,data){
+                    console.log(err);
+                    var headers = [];
+                    var rowdata = [];
+                    var regiondata
+                    for(i in err.columnHeaders){
+                        headers.push(err.columnHeaders[i].name)
+                    }
+                    for(i in err.rows){
+                        rowdata.push([err.rows[i][0],err.rows[i][1]])
+                    }
+                    console.log(rowdata)
+                    
+                    var regionDataArray = [headers]
+                    
+                    for(i in err.rows){
+                        regionDataArray.push(err.rows[i])
+                    }
+                    
+                    var data = google.visualization.arrayToDataTable(regionDataArray);
+
+                    var options = {
+                        region:'US',
+                        resolution:"provinces"
+                    };
+
+                    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                    chart.draw(data, options);
+                }
+            })
+          
+            /*var regionDataArray = [
+                ['Region', 'State',          'Important Info', 'Other Data'],
+                ['US-NY',  'New York',       300,              0],
+                ['US-SC',  'South Carolina', 300,              200],
+                ['US-PA',  'Pennsylvania',   600,              0],
+                ['US-CO',  'Colorado',       0,                500]
+            ];
+
+            var data = google.visualization.arrayToDataTable(regionDataArray);
+
+            var options = {
+                region:'US',
+                resolution:"provinces"
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);*/
+          }
+              function getStates(id){
+                console.log(id)
+                /*$.ajax({
+                    type: "PUT",
+                    url: '/demographInfo',
+                    data: {id:id},
+                    success: function(err){
+                        $('#regions_div').empty()
+                        $('#header').empty()
+                        var headers = [];
+                        var rowdata = [];
+                        var regiondata
+                        for(i in err.columnHeaders){
+                            headers.push(err.columnHeaders[i].name)
+                        }
+                        for(i in err.rows){
+                            rowdata.push([err.rows[i][0],err.rows[i][1]])
+                        }
+                        console.log(rowdata)
+
+                        var regionDataArray = [headers]
+
+                        for(i in err.rows){
+                            regionDataArray.push(err.rows[i])
+                        }
+
+                        var data = google.visualization.arrayToDataTable(regionDataArray);
+
+                        var options = {
+                            region:'US',
+                            resolution:"provinces"
+                        };
+
+                        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                        chart.draw(data, options);
+                    }
+                })*/
+              }
+    script(src="https://maps.googleapis.com/maps/api/js?libraries=visualization")
         
     style.
         #owl-demo, .item img{
