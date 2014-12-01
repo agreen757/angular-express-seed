@@ -23,6 +23,8 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     
     //NEED TO WORK OUT THIS EXPORT UTILITY
     
+    
+    
     function queryer(name,month,cb){
         var premUgc = {};
         db.collection('Reports-'+month).aggregate(
@@ -124,6 +126,38 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                     }
         )
     }
+    
+    function scwriter(silo,cb){
+        
+        var plays = silo.plays,
+            rev = silo.revenue,
+            name = silo.name,
+            month = silo.month,
+            cpm = rev / plays,
+            indfee = rev * .2,
+            finalrev = rev - indfee;
+        
+        fs.writeFile(silo.name+'.csv', "INDMusic SoundCloud Report"+"\n"+month+" 2014"+"\n"+name+"\n"
+                                  +"\n"
+                                  +"Total Plays are: "+plays+"\n"
+                                  +"Total  Revenue is: "+rev+"\n"
+                                  +"Per Stream Revenue: "+cpm+"\n"
+                                  +"InDMusic Fee is: "+indfee+"\n"
+                                  +"\n"
+                                  +"Total Partner Payout: "+finalrev+"\n"
+                                  +"\n", function(err){
+            if(err){console.log(err)}
+                                      console.log('done in writer')
+            return cb(null,"finished");
+        }
+                                  
+                                  
+        )
+        
+        
+        
+    }
+    
     
     function writer(silo,cb){
         
@@ -250,6 +284,20 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
         fs.appendFile(silo.name+'.csv',"\n");
         //fs.appendFile(silo.name+'.csv',"Video ID,Claim Type,Claim Origin,Asset Title,Content Type,Asset Type,Artist,Album,ISRC,Custom ID,Total Views,Ad Enabled Views,Total Earnings"+"\n"); 
         return cb(null,"finished");*/
+    }
+    
+    function scexporter(silo,cb){
+        var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c scOctober14 -q '{accountName:\""+silo.name+"\"}' --csv --fields trackId,label,trackName,album,artist,isrc,plays,revenue >>  "+silo.name+".csv";
+        
+        child = exec(outstring, function(error,stdout,stderr){
+            console.log('doing something')
+            console.log("stdout: "+stdout);
+            return cb(null, stdout);
+            console.log('stderr: ' + stderr);
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
+        })
     }
     
     function exporter(silo,cb){
@@ -453,6 +501,37 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             })
     }
     
+    exports.scdl = function(account,month,cb){
+        console.log('in scexport',account,month);
+        var silo = {};
+        async.series([
+            function(callback){
+                exports.scquery(account,month,function(err,data){
+                    console.log(data)
+                    silo.plays = data.plays;
+                    silo.revenue = data.revenue;
+                    silo.name = account;
+                    silo.month = month;
+                    callback()
+                })
+            },
+            function(callback){
+                scwriter(silo,function(err,resp){
+                    if(err){console.log(err)}
+                    console.log(resp)
+                    callback();
+                    
+                })
+            },
+            function(callback){
+                scexporter(silo,function(err,resp){
+                    return cb(null,resp);
+                    callback();
+                })
+            }
+        ])
+    }
+    
     exports.dl = function(request,month,cb){
         silo = {};
         
@@ -554,6 +633,23 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                         })
                 
                     }
+        )
+    }
+    exports.scquery = function(account,month,cb){
+        console.log('in query',account,month);
+        
+        db.collection('scOctober14').aggregate(
+            {$match:{'accountName':{"$regex":"^"+account+"$","$options":"i"}}},
+            {
+                $group:{
+                    _id: {account:"$accountName"},
+                    revenue:{$sum: "$revenue"},
+                    plays:{$sum: "$plays"}
+                }}, function(err,result){
+                    console.log('at end of aggr')
+                    console.log(err,result);
+                    return cb(null,{plays:result[0].plays,revenue:result[0].revenue})
+                }
         )
     }
     exports.query = function(request,month,cb){

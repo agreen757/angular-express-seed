@@ -44,6 +44,8 @@
                             td {{partAdViews}}
                             td {{partEarnings}}
     div.row
+        center
+            h1 YouTube
         div.col-md-6(style="border:solid #eee;padding:20px;")
             center
                 h2 Enter 'customID' Identifier
@@ -83,3 +85,32 @@
                 button.btn.btn-primary(ng-click="queryNotes(request)") Preview  
                 br
                 button.btn.btn-primary(ng-click="export(request)") Export
+    .row
+        center
+            h1 SoundCloud
+        .col-md-6(style="border:solid #eee;padding:20px;")
+            center
+                h2 Enter account name
+                h2
+                    a(href="#", ng-click="scgetDownload(request)") {{scdownload}}
+                    a(ng-href="{{link}}",download="{{fileName}}")
+                hr
+            form(name="scInput", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
+                select.form-control(name="month",ng-model="sc.month")
+                    option October
+                input(placeholder="Enter a label",ng-model="sc.name",name="scname")
+                button.btn.btn-primary(ng-click="scquery(sc)") Preview
+                br
+                button.btn.btn-primary(ng-click="scexport(sc)") Export
+        .col-md-6#scprev(style="border:solid #eee;padding:20px;display:none")
+            center
+                h2 Preview
+            table.table
+                thead
+                    tr
+                        th Plays
+                        th Revenue
+                tbody
+                    tr
+                        td {{plays}}
+                        td {{revenue}}

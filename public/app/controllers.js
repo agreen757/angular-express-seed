@@ -44,6 +44,7 @@ controllers.controller('IndexController', ['$scope', function($scope) {
     
 }]);
 var globalname;
+var scglobalname;
 controllers.controller('AnotherController', ['$scope', function($scope) {
     $scope.message = 'Another Page';
     //$scope.name = 'bob';
@@ -343,5 +344,30 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
             }*/
             
         })
+    }
+    
+    $scope.scquery = function(sc){
+        console.log(sc)
+        $http.put('/scquery', {account:sc.name,month:sc.month}).success(function(data,status,headers){
+            console.log(data.data);
+            $("#scprev").show()
+            $scope.plays = data.data.plays;
+            $scope.revenue = data.data.revenue;
+        })
+    }
+    
+    $scope.scexport = function(sc){
+        $http.put('/scexport', {account:sc.name,month:sc.month}).success(function(data,status,headers){
+            console.log(status);
+            $scope.scdownload = "Download"
+            $scope.scfileName = $scope.sc.name+'.csv';
+            $scope.scgenerate = "Generate";
+            scglobalname = $scope.scfileName;
+        })
+    }
+    $scope.scgetDownload = function(file){
+        $('<form action="'+ "/download" +'" method="'+ ('post') +'">'+'<input type="hidden" name="file" value="'+$scope.scInput.scname.$modelValue+'"'+'/></form>')
+               .appendTo('body').submit().remove();
+        $scope.scdownload = null
     }
 }]);

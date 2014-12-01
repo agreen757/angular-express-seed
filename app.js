@@ -58,7 +58,8 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    //callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -127,6 +128,16 @@ app.put('/query', function(req,res){
     reports.query(req.body.name,req.body.month, function(err,response){
         //console.log(err,response);
         res.send({data:response});
+    })
+})
+
+app.put('/scquery', function(req,res){
+    console.log(req.body);
+    //res.send('in app');
+    var account = req.body.account;
+    var month = req.body.month;
+    reports.scquery(account,month, function(err,response){
+        res.send({data:response})
     })
 })
 
@@ -215,6 +226,13 @@ app.put('/export', function(req,res){
     console.log(req.body);
     res.setHeader("Content-Type", "text/html");
     reports.dl(req.body.name,req.body.month, function(err,response){
+        res.send({data:"got it"})
+    })
+})
+
+app.put('/scexport', function(req,res){
+    console.log(req.body);
+    reports.scdl(req.body.account,req.body.month, function(err,response){
         res.send({data:"got it"})
     })
 })
