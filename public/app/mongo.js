@@ -287,7 +287,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     
     function scexporter(silo,cb){
-        var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c scOctober14 -q '{accountName:\""+silo.name+"\"}' --csv --fields trackId,label,trackName,album,artist,isrc,plays,revenue >>  "+silo.name+".csv";
+        var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c sc"+silo.month+"14 -q '{accountName:\""+silo.name+"\"}' --csv --fields trackId,label,trackName,album,artist,isrc,plays,revenue >>  "+silo.name+".csv";
         
         child = exec(outstring, function(error,stdout,stderr){
             console.log('doing something')
@@ -502,6 +502,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     
     exports.scdl = function(account,month,cb){
+        var newmonth = "sc"+month+"14";
         console.log('in scexport',account,month);
         var silo = {};
         async.series([
