@@ -637,8 +637,8 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     exports.scquery = function(account,month,cb){
         console.log('in query',account,month);
-        
-        db.collection('scOctober14').aggregate(
+        var newmonth = "sc"+month+"14";
+        db.collection(newmonth).aggregate(
             {$match:{'accountName':{"$regex":"^"+account+"$","$options":"i"}}},
             {
                 $group:{
