@@ -65,7 +65,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                     }
                                 }
                             }
-                            if(element._id.contentType == "UGC"){
+                            else if(element._id.contentType == "UGC"){
                                 counter++
                                 comb.ugcEarnings = element.earnings;
                                 comb.ugcViews = element.views;
@@ -694,7 +694,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                     }
                                 }
                             }
-                            if(element._id.contentType == "UGC"){
+                            else if(element._id.contentType == "UGC"){
                                 counter++
                                 comb.ugcEarnings = element.earnings;
                                 comb.ugcViews = element.views;
