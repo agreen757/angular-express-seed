@@ -91,6 +91,41 @@
                 button.btn.btn-primary(ng-click="export(request)") Export
     .row
         center
+            h1 YouTube Publishing
+        .col-md-6(style="border:solid #eee;padding:20px;")
+            center
+                h2 Enter 'customID'
+                hr
+            form(name='pubForm',style="width:30%")
+                select.form-control(name="month",ng-model="pub.month")
+                    option(ng-repeat="month in months") {{month}}
+                select.form-control(name="year",ng-model="pub.year")
+                    option(ng-repeat="year in pubyears") {{year}}
+                input(placeholder='enter a customId',ng-model="pub.customId",name="pubcustomId")
+                button.btn.btn-primary(ng-click="pubquery(pub)") Preview
+        .col-md-6#pubresults(style="display:none;border;border:solid #eee;padding:20px;")
+            #goodresults(style="display:none")
+                center
+                    h2 Publishing Totals for {{pubid}}
+                table.table
+                    tr
+                        thead
+                            th Total Views
+                            th Total Ad-Enabled views
+                            th Total Earnings
+                    tr
+                        tbody
+                            td {{pubViews}}
+                            td {{pubAdViews}}
+                            td {{pubEarnings}}
+                
+
+            #nullresults(style="display:none")
+                center
+                    h2(style="color:green") I'm sorry, we couldn't find the channel you're looking for
+                
+    .row
+        center
             h1 SoundCloud
         .col-md-6(style="border:solid #eee;padding:20px;")
             center

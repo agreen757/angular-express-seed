@@ -346,6 +346,9 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
         })
     }
     
+    //***************************************
+    //**********************SOUNDCLOUD
+    //***************************************
     $scope.scquery = function(sc){
         console.log(sc)
         $http.put('/scquery', {account:sc.name,month:sc.month}).success(function(data,status,headers){
@@ -370,4 +373,35 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
                .appendTo('body').submit().remove();
         $scope.scdownload = null
     }
+    
+      //***************************************
+    //**********************YOUTUBE PUBLISHING
+    //***************************************
+    
+    $scope.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    $scope.pubyears = ['13','14'];
+    
+    $scope.pubquery = function(pub){
+        console.log(pub)
+        $http.put('/pubquery',pub).success(function(data,status,headers){
+            console.log(data);
+            if(data.err){
+                $('#goodresults').hide()
+                console.log('theres an err')
+                $('#pubresults,#nullresults').show()
+            }
+            else{
+                $('#nullresults').hide()
+                var resp = data.resp[0];
+                $scope.pubid = resp._id.customId;
+                $scope.pubAdViews = resp.adViews;
+                $scope.pubEarnings = resp.earnings;
+                $scope.pubViews = resp.views;
+                $('#pubresults,#goodresults').show()
+                
+            }
+            
+        })
+    }
+    
 }]);

@@ -141,6 +141,13 @@ app.put('/scquery', function(req,res){
     })
 })
 
+app.put('/pubquery', function(req,res){
+    var query = req.body;
+    reports.pubquery(query, function(err,resp){
+        res.send({err:err,resp:resp})
+    })
+})
+
 app.post('/ddexdownload', function(req,res){
     console.log(req.body);
     if(req.body){

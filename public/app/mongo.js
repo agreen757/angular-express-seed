@@ -653,6 +653,39 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 }
         )
     }
+    
+    exports.pubquery = function(data,cb){
+        console.log('in pubquery with ',data)
+        var yr = data.year;
+        var month = data.month;
+        var customId = data.customId;
+        var collection = 'Publishing-Reports-'+month+'-'+yr;
+        console.log(collection)
+        
+        db.collection(collection).aggregate(
+            {$match:{'customId':{"$regex":"^"+customId+"$","$options":"i"}}},
+            {
+                $group:{
+                    _id: {customId:"$customId"},
+                    earnings:{$sum: "$tEarnings"},
+                    views: {$sum: "$tViews"},
+                    adViews: {$sum: "$adViews"}
+                }}, function(err,result){
+                    console.log('done aggregating pub')
+                    console.log(err,result);
+                    if(!result[0]){
+                        console.log('nothing found')
+                        return cb('Not Found',null)
+                    }
+                    else{
+                        return cb(null,result);   
+                    }
+                }
+        )
+        
+        //return cb(null, "got it")
+    }
+    
     exports.query = function(request,month,cb){
         console.log("executing query...")
         var premUgc = {}; 
