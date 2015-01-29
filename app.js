@@ -244,6 +244,20 @@ app.put('/scexport', function(req,res){
     })
 })
 
+app.put('/pubexport', function(req,res){
+    var pub = req.body
+    reports.pubexport(pub, function(err,resp){
+        console.log('back in app from pub writer')
+        
+        if(!err){
+            res.send('ready')
+        }
+        else{
+            res.send('there was an error')
+        }
+    })
+})
+
 //*************************************************************************
 //*************************MAP SECTION************************************
 
@@ -297,6 +311,7 @@ app.get('/signup', signupAsk, routes.signup);
 
 //****************INSERTED THE ENSUREAUTHENTICATION PIECE HERE IN FRONT OF THE REPORT VIEW - WORKS AS USUAL 
 app.get('/report', ensureAuthenticated,ensureApproved,routes.reports);
+//app.get('/report', routes.reports);
 app.get('/partials/:name', routes.partials);
 app.get('*', routes.index);
 

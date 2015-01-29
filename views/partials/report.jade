@@ -96,28 +96,43 @@
             center
                 h2 Enter 'customID'
                 hr
-            form(name='pubForm',style="width:30%")
-                select.form-control(name="month",ng-model="pub.month")
-                    option(ng-repeat="month in months") {{month}}
-                select.form-control(name="year",ng-model="pub.year")
-                    option(ng-repeat="year in pubyears") {{year}}
-                input(placeholder='enter a customId',ng-model="pub.customId",name="pubcustomId")
-                button.btn.btn-primary(ng-click="pubquery(pub)") Preview
-        .col-md-6#pubresults(style="display:none;border;border:solid #eee;padding:20px;")
+            .row
+                .col-md-6
+                    form(name='pubForm')
+                        select.form-control(name="month",ng-model="pub.month")
+                            option(ng-repeat="month in months") {{month}}
+                        select.form-control(name="year",ng-model="pub.year")
+                            option(ng-repeat="year in pubyears") {{year}}
+                        input(placeholder='enter a customId',ng-model="pub.customId",name="pubcustomId")
+                        button.btn.btn-default(ng-click="pubquery(pub)") Preview
+                        br
+                        button.btn.btn-primary(ng-click="pubexport(pub)") Export
+                .col-md-6
+                    center
+                        h3#pubdownload(style="display:none")
+                           a(href="",ng-click="pubgetDownload(pub)") Download Publishing Report
+        .col-md-6#pubresults(style="display:none;")
             #goodresults(style="display:none")
                 center
                     h2 Publishing Totals for {{pubid}}
+                    br
                 table.table
                     tr
                         thead
-                            th Total Views
-                            th Total Ad-Enabled views
-                            th Total Earnings
+                            th Total UGC Views
+                            th Total UGC Ad-Enabled views
+                            th Total UGC Earnings
+                            th Total Partner Views
+                            th Total Partner Ad-Enabled views
+                            th Total Partner Earnings
                     tr
                         tbody
-                            td {{pubViews}}
-                            td {{pubAdViews}}
-                            td {{pubEarnings}}
+                            td {{UGCpubViews}}
+                            td {{UGCpubAdViews}}
+                            td {{UGCpubEarnings}}
+                            td {{PARTpubViews}}
+                            td {{PARTpubAdViews}}
+                            td {{PARTpubEarnings}}
                 
 
             #nullresults(style="display:none")

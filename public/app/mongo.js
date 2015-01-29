@@ -653,38 +653,173 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 }
         )
     }
+    //***********************************************
+    //************************PUBLISHING STUFF
+    //***********************************************
+    
+    function varmaker(data){
+        var foo = {
+            yr:data.year,
+            month:data.month,
+            customId:data.customId,
+            collection:'Publishing-Reports-'+data.month+'-'+data.year
+        }
+        return foo;
+    }
     
     exports.pubquery = function(data,cb){
         console.log('in pubquery with ',data)
-        var yr = data.year;
-        var month = data.month;
-        var customId = data.customId;
-        var collection = 'Publishing-Reports-'+month+'-'+yr;
-        console.log(collection)
+        var pubdata = varmaker(data);
         
-        db.collection(collection).aggregate(
-            {$match:{'customId':{"$regex":"^"+customId+"$","$options":"i"}}},
+        db.collection(pubdata.collection).aggregate(
+            {$match:{'customId':{"$regex":"^"+pubdata.customId+"$","$options":"i"}}},
             {
                 $group:{
-                    _id: {customId:"$customId"},
+                    _id: {customId:"$customId",contentType:"$contentType"},
                     earnings:{$sum: "$tEarnings"},
                     views: {$sum: "$tViews"},
                     adViews: {$sum: "$adViews"}
                 }}, function(err,result){
-                    console.log('done aggregating pub')
-                    console.log(err,result);
-                    if(!result[0]){
-                        console.log('nothing found')
-                        return cb('Not Found',null)
+                        console.log('done aggregating pub')
+                        result.data = data;
+                        if(!result[0]){
+                            console.log('nothing found')
+                            return cb('Not Found',null)
+                        }
+                        else{
+                            return cb(null,result);   
+                        }
                     }
-                    else{
-                        return cb(null,result);   
-                    }
-                }
         )
         
         //return cb(null, "got it")
     }
+    
+    exports.pubexport = function(data,cb){
+        var pubdata = varmaker(data);
+        var assetdata = data;
+        //console.log('THIS IS ASSETDATA ',data)
+        var name;
+        var ugcEarnings = 0;
+        var ugcViews = 0;
+        var ugcAdviews = 0;
+        var partEarnings = 0;
+        var partIndFee = 0;
+        var partRev = 0;
+        var partViews = 0;
+        var partAdviews = 0;
+        var partNAdViews = 0;
+        var partTAViews = 0;
+        var partPercentage = 0;
+        var partnerCPM = 0;
+        var counter = 0;
+        async.series([
+            function(callback){
+                exports.pubquery(data, function(er,res){
+                    //console.log('THIS IS THE RES 0 ',res[0])
+                    name = res[0]._id.customId
+                    for(i=0;i<res.length;i++){
+                        console.log(i,res.length)
+                        //counter++;
+                        var a = res[i];
+                        
+                        if(a._id.contentType == "UGC"){
+                            ugcEarnings = a.earnings;
+                            ugcViews = a.views;
+                            ugcAdviews = a.adViews;
+                        }
+                        else if(a._id.contentType == "PARTNER-PROVIDED"){
+                            partAdviews = a.adViews;
+                            partViews = a.views;
+                            partEarnings = a.earnings;
+                        }
+                        
+                        if(i == res.length - 1){
+                            //console.log('in equals')
+                            setTimeout(function(){
+                                callback();    
+                            },200)
+                        }
+                    }
+                })   
+            },
+            function(callback){
+                //console.log('in second')
+                
+                if(partAdviews != 0){
+                    partRev = partEarnings-partIndFee;
+                    partIndFee = partPercentage * partRev;
+                    partTAViews = partAdviews / 1000;
+                    partnerCPM = partEarnings / partTAViews;
+                    partNAdViews = partViews - partAdviews;
+                    if(partnerCPM > 5){
+                       partPercentage = 2 * partnerCPM / 100;
+                        }
+                    else{
+                       partPercentage = .1;
+                    }
+                }
+                
+                var ugcPercentage = .1
+        
+                var ugcIndFee = ugcPercentage*ugcEarnings;
+                var ugcRev = ugcEarnings-ugcIndFee;
+                var payout = partRev+ugcRev;
+                fs.writeFile(name+'.csv',
+                                "INDMusic Publishing Report"+"\n"+assetdata.month+" "+assetdata.year+" "+"\n"+name+"\n"
+                                +"\n"
+                                  +"Partner Views are: "+partViews+"\n"
+                                  +"Non-Ad Requested Views: "+partNAdViews+"\n"
+                                  +"Partner Revenue is: "+partEarnings+"\n"
+                                  +"Partner Ad Enabled Views are: "+partAdviews+"\n"
+                                  +"Partner Thousands of Ad Enabled Views: "+partTAViews+"\n"
+                                  +"CPM: "+partnerCPM+"\n"
+                                  +"INDMusic Percentage: "+partPercentage+"\n"
+                                  +"Partner InDMusic Fee is: "+partIndFee+"\n"
+                                  +"Total Partner Earnings: "+partRev+"\n"
+                                  +"\n"
+                                  +"UGC Views are: "+ugcViews+"\n"
+                                  +"UGC Revenue is: "+ugcEarnings+"\n"
+                                  +"UGC Ad Enabled Views are: "+ugcAdviews+"\n"
+                                  +"UGC Thousands of Ad Enabled Views: "+ugcAdviews / 1000+"\n"
+                                  +"INDMusic Percentags: "+ugcPercentage+"\n"
+                                  +"UGC InDMusic Fee is: "+ugcIndFee+"\n"
+                                  +"Total UGC Earnings: "+ugcRev+"\n"
+                                  +"\n"
+                                  +"Total Channel Partner Payout: "+payout+"\n"
+                                  +"\n", function(err){
+                                            if(err){console.log(err)}
+                                            console.log('done in pub writer')
+                                            callback()
+                                        }
+                            
+                            )
+            },
+            function(callback){
+                var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c Publishing-Reports-"+assetdata.month+"-"+assetdata.year+" -q '{customId:\""+assetdata.customId+"\"}' --csv --fields videoId,claimType,claimOrigin,assetTitle,contentType,assetType,artist,album,isrc,customId,writer,channel,tViews,adViews,tEarnings >>  "+name+".csv";
+        
+                child = exec(outstring, function(error,stdout,stderr){
+                    console.log('executed writing publishing')
+                    //console.log("stdout: "+stdout,err,stderr);
+                    
+                    if(!err){
+                        console.log('no err returning...')
+                        return cb(null, 'stdout');
+                    }
+                    else{
+                        return cb(err,null)
+                    }
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('exec error: ' + error);
+                    }
+                })
+            }
+        ])
+    }
+    
+    //***********************************************
+    //***********************************************
     
     exports.query = function(request,month,cb){
         console.log("executing query...")

@@ -384,7 +384,6 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     $scope.pubquery = function(pub){
         console.log(pub)
         $http.put('/pubquery',pub).success(function(data,status,headers){
-            console.log(data);
             if(data.err){
                 $('#goodresults').hide()
                 console.log('theres an err')
@@ -392,16 +391,41 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
             }
             else{
                 $('#nullresults').hide()
-                var resp = data.resp[0];
-                $scope.pubid = resp._id.customId;
-                $scope.pubAdViews = resp.adViews;
-                $scope.pubEarnings = resp.earnings;
-                $scope.pubViews = resp.views;
+                $scope.pubid = data.resp[0]._id.customId;
+                //console.log()
+                for(i in data.resp){
+                    console.log(data.resp[i]._id.contentType)
+                    if(data.resp[i]._id.contentType === "UGC"){
+                        var resp = data.resp[i];
+                        $scope.UGCpubAdViews = resp.adViews;
+                        $scope.UGCpubEarnings = resp.earnings;
+                        $scope.UGCpubViews = resp.views;
+                    }
+                    else if(data.resp[i]._id.contentType === "PARTNER-PROVIDED"){
+                        var resp = data.resp[i];
+                        $scope.PARTpubAdViews = resp.adViews;
+                        $scope.PARTpubEarnings = resp.earnings;
+                        $scope.PARTpubViews = resp.views;
+                    }
+                }
                 $('#pubresults,#goodresults').show()
                 
             }
             
         })
+    }
+    
+    $scope.pubexport = function(pub){
+        $http.put('/pubexport',pub).success(function(data,status,headers){
+            console.log(data,status,headers)
+            $('#pubdownload').show()
+        })
+    }
+    
+    $scope.pubgetDownload = function(pub){
+        console.log(pub)
+        $('#pubdownload').hide()
+        $('<form action="'+ "/download" +'" method="'+ ('post') +'">'+'<input type="hidden" name="file" value="'+pub.customId+'"'+'/></form>').appendTo('body').submit().remove();
     }
     
 }]);
