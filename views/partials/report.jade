@@ -99,8 +99,10 @@
             .row
                 .col-md-6
                     form(name='pubForm')
+                        label Pick a month
                         select.form-control(name="month",ng-model="pub.month")
                             option(ng-repeat="month in months") {{month}}
+                        label Pick a year
                         select.form-control(name="year",ng-model="pub.year")
                             option(ng-repeat="year in pubyears") {{year}}
                         input(placeholder='enter a customId',ng-model="pub.customId",name="pubcustomId")
