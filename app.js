@@ -23,7 +23,7 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.bodyParser());
+app.use(express.bodyParser({limit: '5000mb'}));
 app.use(methodOverride());
 app.use(session({secret: '1234567890INDMUSIC'}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -215,11 +215,11 @@ app.post('/fileUpload', function(req,res){
     //**********************************
     
     console.log(req.files);
-    var file = req.files.uploadfile.name;
-    var path = req.files.uploadfile.ws.path;
+    /*var file = req.files.uploadfile.name;
+    var path = req.files.uploadfile.ws.path;*/
     
     //send the two variables to the page to be stored in client-side variables
-    res.send({name:file,path:path})
+    res.send({name:req.files})
     
 })
 app.put('/queryNotes', function(req,res){

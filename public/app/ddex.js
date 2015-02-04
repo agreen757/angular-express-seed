@@ -10,7 +10,7 @@ THE DOWNLOAD WILL BE A LINK TO A RES.DOWNLOAD IN THE APP.JS
 */
 
 exports.soundcloud = function(metadata,files,cb){
-    console.log(files);
+    console.log('in back here');
     var fs = require('graceful-fs');
     var async = require('async');
 
@@ -106,15 +106,17 @@ exports.soundcloud = function(metadata,files,cb){
                 DO SOMETHING HERE TO GET THE FILE NAMES TRANSLATED TO THE FILE PATH INSTEAD
                 ********************************************************************
                 */
-                for(i in files){
-                    if(data['File Name'] == files[i].name){
-                        var filename = files[i].path;
-                        var namefile = files[i].name;
+                console.log(files)
+                for(i in files[0].name.uploadfile){
+                    var file = files[0].name.uploadfile[i]
+                    if(data['File Name'] == file.name){
+                        var filename = file.path;
+                        var namefile = file.name;
                         break;
                     }
                 }
                 var date2 = "20"+parseFloat(date[2])+"-"+parseFloat(date[0])+"-0"+parseFloat(date[1]);
-                silo.push({resourceType:data['Resource Type'], isrc:data['ISRC'], proprietaryId:propper, resourceReference:data['ResourceReference'], referenceTitle:data['Song Title'].replace('&',' and '), duration:data['Song Length'], fullName:data['Artist'].replace('&',' and '), labelName:data['Label'], plineYear:data['P Line Year'], plineText:data['P Line'], genreText:data['Genre'].replace(/[ ]/g,'').replace('&','/'), subGenre:data['SubGenre'], parentalWarningType:data['Parental Warning?'], technicalResourceDetailsReference:data['TechnicalResourceDetailsReference'], fileName:filename,nameFile:namefile,filePath:"resources/", hashSum:data['HashSum'], icpn:parseFloat(data['UPC']), albumTitle:data['Album'].replace('&',' and '), clineYear:data['C Line Year'], clineText:data['C Line'], releaseReference:data['ReleaseReference'], releaseDate:date2,territory:data['Territory']})
+                silo.push({resourceType:data['Resource Type'], isrc:data['ISRC'], proprietaryId:propper, resourceReference:data['ResourceReference'], referenceTitle:data['Song Title'].replace('&',' and '), duration:data['Song Length'], fullName:data['Artist'].replace('&',' and '), labelName:data['Label'], plineYear:data['P Line Year'], plineText:data['P Line'], genreText:data['Genre'].replace(/[ ]/g,'').replace('&','/'), subGenre:data['SubGenre'], parentalWarningType:data['Parental Warning?'], technicalResourceDetailsReference:data['TechnicalResourceDetailsReference'], fileName:filename,nameFile:namefile,filePath:"resources/", hashSum:data['HashSum'], icpn:parseFloat(data['UPC']), albumTitle:data['Album'].replace('&',' and '), clineYear:data['C Line Year'], clineText:data['C Line'], releaseReference:data['ReleaseReference'], releaseDate:data['Release Date'],territory:data['Territory']})
         }
         })
 

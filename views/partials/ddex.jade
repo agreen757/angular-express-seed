@@ -10,6 +10,14 @@
                         input(value="Generate", type="button", class="btn btn-primary", style="display:none",id="foo")
                 h3(id="dl",style="display:none;") 
                     a(id="download",href="#") Download
+center
+    container
+        //.progress
+            .progress-bar#progress(role="progressbar",aria-valuenow="0",aria-valuemin="0",aria-valuemax="100",style="width:100%")
+                span.sr-only 70% complete
+        .row
+            center
+                h1#progress 
 
 .container
     center
@@ -27,7 +35,7 @@
             h2 Upload files
             form(enctype="multipart/form-data", id="files")
                 .form-group
-                    input(name="uploadfile", type="file", id="myFile")
+                    input(name="uploadfile", type="file", multiple, id="myFile")
                     input(value="UPLOAD", id="upload",type="button", class="btn btn-primary")
                     
         div.col-md-6(style="padding:70px;background-color:#eee")
@@ -42,7 +50,7 @@ script(type="text/javascript").
     var files = [];
     var filename = {};
     var metadata = {};
-    
+   
     $('#download').click(function(){
         console.log('in the downloader function');
         $('<form action="'+ "/ddexdownload" +'" method="'+ ('post') +'">'+'<input type="hidden" name="file" value="'+filename.name+'"'+'/></form>').appendTo('body').submit().remove();
@@ -50,16 +58,53 @@ script(type="text/javascript").
     $('#upload').click(function(){
         var formData = new FormData($('form#files')[0]);
         console.log(formData)
+        
+        var xhr = new XMLHttpRequest;
+        
+        /*xhr.upload.addEventListener("progress", function(e){
+        
+            var pc = parseInt(100 - (e.loaded / e.total * 100));
+            //$('.progress-bar').aria-valuenow = pc
+            document.getElementById('progress').aria-valuenow = pc;
+        
+        })*/
+        
         $.ajax({
             url: '/fileUpload',
             type: 'POST',
             data: formData,
+            xhr: function(){
+               var xhr = new window.XMLHttpRequest();
+               //Upload progress
+               xhr.upload.addEventListener("progress", function(evt){
+               if (evt.lengthComputable) {
+                 var percentComplete = evt.loaded / evt.total *100;
+                 //Do something with upload progress
+                 console.log(percentComplete);
+                 console.log($('#progress'))
+                 //$('#progress').attr('aria-valuenow',percentComplete)
+                 $('#progress').html(percentComplete)
+                 }
+               }, false);
+             //Download progress
+               xhr.addEventListener("progress", function(evt){
+                 if (evt.lengthComputable) {
+                   var percentComplete = evt.loaded / evt.total;
+                 //Do something with download progress
+                   //console.log(percentComplete);
+                   //$('#progress').attr('aria-valuenow',percentComplete) 
+                 }
+               }, false);
+               return xhr;
+             },
             processData: false,
             contentType: false,
             success: function(data){
-                //console.log(data);
+                console.log(data);
                 files.push(data);
-                $('.table tbody:last').after('<tr><td>'+data.name+'</td></tr>');
+                for(i in data.name.uploadfile){
+                    $('.table tbody:last').after('<tr><td>'+data.name.uploadfile[i].name+'</td></tr>');
+                }
                 $('form#files')[0].reset();
             }
         })
