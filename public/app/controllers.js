@@ -351,16 +351,23 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     //***************************************
     $scope.scquery = function(sc){
         console.log(sc)
-        $http.put('/scquery', {account:sc.name,month:sc.month}).success(function(data,status,headers){
-            console.log(data.data);
-            $("#scprev").show()
-            $scope.plays = data.data.plays;
-            $scope.revenue = data.data.revenue;
+        $http.put('/scquery', {account:sc.name,month:sc.month,year:sc.year}).success(function(data,status,headers){
+            console.log(data);
+            if(data.data != null){
+                $("#scprev").show()
+                $scope.plays = data.data.plays;
+                $scope.revenue = data.data.revenue;   
+            }
+            else{
+                $("#scprev").show()
+                $scope.plays = 'none';
+                $scope.revenue = 'none';   
+            }
         })
     }
     
     $scope.scexport = function(sc){
-        $http.put('/scexport', {account:sc.name,month:sc.month}).success(function(data,status,headers){
+        $http.put('/scexport', {account:sc.name,month:sc.month,year:sc.year}).success(function(data,status,headers){
             console.log(status);
             $scope.scdownload = "Download"
             $scope.scfileName = $scope.sc.name+'.csv';
