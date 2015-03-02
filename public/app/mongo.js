@@ -128,16 +128,19 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     
     function scwriter(silo,cb){
-        
+        console.log('in writer with',silo.year,silo.month,silo.name)
         var plays = silo.plays,
             rev = silo.revenue,
             name = silo.name,
             month = silo.month,
+            year = silo.year,
             cpm = rev / plays,
             indfee = rev * .2,
             finalrev = rev - indfee;
         
-        fs.writeFile(silo.name+'.csv', "INDMusic SoundCloud Report"+"\n"+month+" 2014"+"\n"+name+"\n"
+        //fs.writeFileSync('test.txt','yoyo')
+        
+        fs.writeFile(silo.name+'.csv', "INDMusic SoundCloud Report"+"\n"+month+"-"+year+"\n"+name+"\n"
                                   +"\n"
                                   +"Total Plays are: "+plays+"\n"
                                   +"Total  Revenue is: "+rev+"\n"
@@ -287,7 +290,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     }
     
     function scexporter(silo,cb){
-        var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c sc"+silo.month+"14 -q '{accountName:\""+silo.name+"\"}' --csv --fields trackId,label,trackName,album,artist,isrc,plays,revenue >>  "+silo.name+".csv";
+        var outstring = "mongoexport --host candidate.19.mongolayer.com --port 10190 -u indmusic -p 247MCNetwork -db INDMUSIC -c sc"+silo.month+silo.year+" -q '{accountName:\""+silo.name+"\"}' --csv --fields trackId,label,trackName,album,artist,isrc,plays,revenue >>  "+silo.name+".csv";
         
         child = exec(outstring, function(error,stdout,stderr){
             console.log('doing something')
@@ -501,18 +504,19 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             })
     }
     
-    exports.scdl = function(account,month,cb){
-        var newmonth = "sc"+month+"14";
+    exports.scdl = function(account,month,yr,cb){
+        var newmonth = "sc"+month+yr;
         console.log('in scexport',account,month);
         var silo = {};
         async.series([
             function(callback){
-                exports.scquery(account,month,function(err,data){
+                exports.scquery(account,month,yr,function(err,data){
                     console.log(data)
                     silo.plays = data.plays;
                     silo.revenue = data.revenue;
                     silo.name = account;
                     silo.month = month;
+                    silo.year = yr;
                     callback()
                 })
             },
@@ -636,9 +640,9 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                     }
         )
     }
-    exports.scquery = function(account,month,cb){
-        console.log('in query',account,month);
-        var newmonth = "sc"+month+"14";
+    exports.scquery = function(account,month,year,cb){
+        console.log('in query',account,month,year);
+        var newmonth = "sc"+month+year;
         db.collection(newmonth).aggregate(
             {$match:{'accountName':{"$regex":"^"+account+"$","$options":"i"}}},
             {
@@ -649,7 +653,13 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                 }}, function(err,result){
                     console.log('at end of aggr')
                     console.log(err,result);
-                    return cb(null,{plays:result[0].plays,revenue:result[0].revenue})
+                    if(!result[0]){
+                        return cb('not found',null)
+                    }
+                    else{
+                        return cb(null,{plays:result[0].plays,revenue:result[0].revenue})
+                    }
+                    
                 }
         )
     }

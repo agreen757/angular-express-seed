@@ -58,8 +58,8 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
-    //callbackURL: "http://localhost:3000/auth/callback"
+    //callbackURL: "http://ec2-54-84-17-96.compute-1.amazonaws.com:3000/auth/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...                                                                    
@@ -136,7 +136,8 @@ app.put('/scquery', function(req,res){
     //res.send('in app');
     var account = req.body.account;
     var month = req.body.month;
-    reports.scquery(account,month, function(err,response){
+    var year = req.body.year
+    reports.scquery(account,month,year, function(err,response){
         res.send({data:response})
     })
 })
@@ -239,7 +240,8 @@ app.put('/export', function(req,res){
 
 app.put('/scexport', function(req,res){
     console.log(req.body);
-    reports.scdl(req.body.account,req.body.month, function(err,response){
+    shim = req.body
+    reports.scdl(shim.account,shim.month,shim.year, function(err,response){
         res.send({data:"got it"})
     })
 })

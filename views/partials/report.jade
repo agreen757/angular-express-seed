@@ -154,9 +154,16 @@
                     a(ng-href="{{link}}",download="{{fileName}}")
                 hr
             form(name="scInput", ng-class="{ 'has-error': userForm.email.$invalid }",style="width:30%;")
+                label Month
                 select.form-control(name="month",ng-model="sc.month")
                     option October
                     option November
+                    option December
+                    option January
+                label Year
+                select.form-control(name="year",ng-model="sc.year")
+                    option 14
+                    option 15
                 input(placeholder="Enter a label",ng-model="sc.name",name="scname")
                 button.btn.btn-primary(ng-click="scquery(sc)") Preview
                 br
