@@ -4,6 +4,7 @@ var Server = require('mongodb').Server;
 var exec = require('child_process').exec;
 var async = require('async');
 var fs = require('fs');
+var pert = require('./percentage.js')
 var child;
     /*mongoexport = spawn('mongoexport', [
         '--host candidate.19.mongolayer.com',
@@ -179,7 +180,14 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
             var partnerCPM = partRev / partTAViews;
         }
         
-        var ugcPercentage = .1
+        if(silo.percentage == 10){
+            var ugcPercentage = .1;
+        }
+        else if(silo.percentage == 20){
+            var ugcPercentage = .2;
+        }
+        
+        
         var partNAdViews = partViews - partAdViews;
         
         //var partnerCPM = partRev / partTAViews;
@@ -207,7 +215,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
         var payout = partEarnings+ugcEarnings;
         
         
-        fs.writeFile(silo.name+'.csv', "INDMusic Channel Report"+"\n"+silo.month+" 2014"+"\n"+silo.name+"\n"
+        fs.writeFile(silo.name+'.csv', "INDMusic Channel Report"+"\n"+silo.month+" 2015"+"\n"+silo.name+"\n"
                                   +"\n"
                                   +"Partner Views are: "+partViews+"\n"
                                   +"Non-Ad Requested Views: "+partNAdViews+"\n"
@@ -539,7 +547,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
     
     exports.dl = function(request,month,cb){
         silo = {};
-        
+        var percentage;
         
         console.log("in the export");
         async.series([
@@ -555,6 +563,19 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                     silo.ugcEarnings = data.ugcEarnings;
                     silo.month = data.month;
                     callback();
+                })
+            },
+            function(callback){
+                pert(function(e,r){
+                    for(var i=0;i<=r.length;i++){
+                        if(r[i] && r[i].customid){
+                            //console.log(r[i].customid)
+                            if(r[i].customid == silo.name){
+                                silo.percentage = r[i].contractpercentage
+                                callback()
+                            }
+                        }
+                    }
                 })
             },
             function(callback){
