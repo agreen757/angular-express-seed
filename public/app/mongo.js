@@ -231,7 +231,7 @@ MongoClient.connect(MONGOHQ_URL, function(err, db){
                                   +"UGC Revenue is: "+ugcRev+"\n"
                                   +"UGC Ad Enabled Views are: "+ugcAdViews+"\n"
                                   +"UGC Thousands of Ad Enabled Views: "+ugcAdViews / 1000+"\n"
-                                  +"INDMusic Percentags: "+ugcPercentage+"\n"
+                                  +"INDMusic Percentage: "+ugcPercentage+"\n"
                                   +"UGC InDMusic Fee is: "+ugcIndFee+"\n"
                                   +"Total UGC Earnings: "+ugcEarnings+"\n"
                                   +"\n"
