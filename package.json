@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "reports",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "error-handler": "^0.1.4",
     "express": "^3.4.0",
     "express-session": "^1.8.0",
+    "google-spreadsheet": "^0.2.8",
     "hash_file": "*",
     "jade": "~0.31.2",
     "md5": "*",
@@ -26,5 +27,20 @@
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jade": "^0.5.1"
-  }
+  },
+  "description": "Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want to use Node to serve their app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agreen757/angular-express-seed"
+  },
+  "author": "A.G.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agreen757/angular-express-seed/issues"
+  },
+  "homepage": "https://github.com/agreen757/angular-express-seed"
 }
