@@ -386,7 +386,7 @@ controllers.controller('Reports', ['$scope','$http', function($scope, $http) {
     //***************************************
     
     $scope.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    $scope.pubyears = ['13','14'];
+    $scope.pubyears = ['13','14','15'];
     
     $scope.pubquery = function(pub){
         console.log(pub)
